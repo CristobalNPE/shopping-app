@@ -1,4 +1,6 @@
-import { Button, Input, Link, Tooltip, Switch } from "@nextui-org/react";
+import { Button, Input, Link, Tooltip, Switch, Image } from "@nextui-org/react";
+
+import logo from "../assets/Logo.svg";
 
 import {
   MdGridView,
@@ -12,10 +14,11 @@ import {
 const Navbar = ({ switchNightMode }) => {
   return (
     <header className="border-b-2 ">
-      <nav className="max-w-screen-2xl mx-auto  flex justify-between px-5 h-20 items-center gap-10">
-        <div className="flex gap-5">
+      <nav className="max-w-screen-2xl mx-auto   flex justify-between px-5 h-20 items-center gap-10">
+        <div className="flex gap-5  items-center">
           <div className="px-2">
-            <h1 className="text-3xl text-primary font-semibold">ShC</h1>
+            {/* <h1 className="text-3xl text-primary font-semibold">ShC</h1> */}
+            <Image src={logo} width={50} />
           </div>
           <Button
             as={Link}
