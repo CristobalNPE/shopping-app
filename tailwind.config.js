@@ -18,7 +18,8 @@ export default {
         light: {
           colors: {
             background: "#FFFFFF",
-            foreground: "#11181C",
+            foreground: "#1c1d1c",
+            focus:"#31938E",
             default: {
               foreground: "#FFFFFF",
               DEFAULT: "#020616",
@@ -49,31 +50,32 @@ export default {
         },
         dark: {
           colors: {
-            background: "#000000", // or DEFAULT
+            background: "#1c1d1c", // or DEFAULT
             foreground: "#ECEDEE",
+            focus:"#31938E",
             default: {
               foreground: "#FFFFFF",
-              DEFAULT: "#040912",
+              DEFAULT: "#020616",
             },
             primary: {
               foreground: "#FFFFFF",
-              DEFAULT: "#2E4870",
+              DEFAULT: "#31938E",
             },
             secondary: {
               foreground: "#FFFFFF",
-              DEFAULT: "#30B1C1",
+              DEFAULT: "#046FD3",
             },
             success: {
               foreground: "#FFFFFF",
-              DEFAULT: "#59B44E",
+              DEFAULT: "#13BF5A",
             },
             warning: {
               foreground: "#FFFFFF",
-              DEFAULT: "#D6A936",
+              DEFAULT: "#FFB807",
             },
             danger: {
               foreground: "#FFFFFF",
-              DEFAULT: "#BB465B",
+              DEFAULT: "#E03367",
             },
           },
           // ... rest of the colors
