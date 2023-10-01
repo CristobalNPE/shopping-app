@@ -7,6 +7,8 @@ import {
   MdOutlinePhone,
 } from "react-icons/md";
 const Contact = () => {
+  // Falta: When button click, popup with "Hemos recibido tu solicitud, nos comunicaremos contigo al correo indicado. bla bla bla"
+
   return (
     <Page>
       <PageTitle>¿Con qué podemos ayudarte?</PageTitle>

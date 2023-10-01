@@ -93,6 +93,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
         <CartButton nightMode={nightMode} />
       </NavbarContent>
 
+      {/* ----------------------------------------------- Small devices Menu ------------------------------------------------ */}
       <NavbarMenu className="bg-foregorund text-primary">
         <NavbarMenuItem className="ml-auto">
           <Switch
