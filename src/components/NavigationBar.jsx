@@ -32,6 +32,7 @@ import SearchBar from "./SearchBar";
 import { NavLink } from "react-router-dom";
 import AccountPopover from "./AccountPopover";
 import CartPopover from "./CartPopover";
+import CartButton from "./CartButton";
 
 export default function NavigationBar({ switchNightMode, nightMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -129,33 +130,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
             </Button>
           </Tooltip>
         </NavbarItem>
-
-        <Badge color="danger" content={11} shape="circle" size="lg">
-          <Tooltip color="primary" content={"Ver carrito"}>
-            <NavbarItem className="hidden sm:flex">
-              <Popover
-                shouldBlockScroll
-                backdrop="opaque"
-                placement="bottom-end"
-              >
-                <PopoverTrigger>
-                  <Button color="primary" variant="light" isIconOnly as={Link}>
-                    <MdShoppingCart className="text-2xl" />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent
-                  className={`${
-                    nightMode
-                      ? "bg-[#1c1d1c] text-[#ECEDEE]"
-                      : "bg-[#FFFFFF] text-[#1c1d1c]"
-                  }`}
-                >
-                  <CartPopover />
-                </PopoverContent>
-              </Popover>
-            </NavbarItem>
-          </Tooltip>
-        </Badge>
+        <CartButton nightMode={nightMode} />
       </NavbarContent>
 
       <NavbarMenu className="bg-foregorund text-primary">
