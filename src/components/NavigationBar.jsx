@@ -11,7 +11,6 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
   Switch,
-  Tooltip,
 } from "@nextui-org/react";
 import { useState } from "react";
 import Logo from "../assets/Logo.svg";
@@ -28,10 +27,10 @@ import {
 import { NavLink } from "react-router-dom";
 import AccountButton from "./AccountButton";
 import CartButton from "./CartButton";
-import FavoritesButton from "./FavoritesButton";
-import SearchBar from "./SearchBar";
 import ContactButton from "./ContactButton";
+import FavoritesButton from "./FavoritesButton";
 import NightModeButtonSwitch from "./NightModeButtonSwitch";
+import SearchBar from "./SearchBar";
 
 export default function NavigationBar({ switchNightMode, nightMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
