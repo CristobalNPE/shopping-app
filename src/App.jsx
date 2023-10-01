@@ -1,10 +1,20 @@
 import { Outlet, ScrollRestoration } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar";
-import { useState } from "react";
+import { useState, createContext } from "react";
 import Footer from "./components/Footer";
+
+export const ShoppingContext = createContext({
+  cartItems: [],
+  addToCart: () => {},
+});
+
 const App = () => {
   const [nightMode, setNightMode] = useState(false);
-  const [shoppingCart, setShoppingCart] = useState([]); //Maybe should use something like context?
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (item) => {
+    setCartItems((prevCartItems) => [...prevCartItems, item]);
+  };
 
   const switchNightMode = () => {
     setNightMode((prevNightMode) => !prevNightMode);
@@ -17,9 +27,14 @@ const App = () => {
       } bg-background text-foreground  w-full min-h-screen  overflow-auto`}
     >
       <ScrollRestoration />
-      <NavigationBar nightMode={nightMode} switchNightMode={switchNightMode} />
-      <Outlet />
-      <Footer />
+      <ShoppingContext.Provider value={{ cartItems, addToCart }}>
+        <NavigationBar
+          nightMode={nightMode}
+          switchNightMode={switchNightMode}
+        />
+        <Outlet />
+        <Footer />
+      </ShoppingContext.Provider>
     </main>
   );
 };

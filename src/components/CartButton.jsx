@@ -11,15 +11,25 @@ import {
 
 import { MdShoppingCart } from "react-icons/md";
 import CartPopover from "./CartPopover";
+import { useContext } from "react";
+import { ShoppingContext } from "../App";
 
 const CartButton = ({ nightMode }) => {
+  const { cartItems } = useContext(ShoppingContext);
+
   return (
-    <Tooltip closeDelay={50}  color="primary" content={"Ver carrito"}>
+    <Tooltip closeDelay={50} color="primary" content={"Ver carrito"}>
       <NavbarItem className="hidden sm:flex">
         <Popover shouldBlockScroll backdrop="opaque" placement="bottom-end">
           <PopoverTrigger>
             <Button color="primary" variant="light" isIconOnly as={Link}>
-              <Badge color="danger" content={11} shape="circle" size="lg">
+              <Badge
+                color="danger"
+                content={cartItems.length}
+                shape="circle"
+                size="lg"
+                className={`${cartItems.length === 0 && "hidden"}`}
+              >
                 <MdShoppingCart className="text-2xl" />
               </Badge>
             </Button>

@@ -1,13 +1,16 @@
 import { Button, Chip, Image } from "@nextui-org/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MdFavorite, MdShoppingCart } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import Page from "../components/Page";
+import { ShoppingContext } from "../App";
 
 const ProductDetails = () => {
   const { id } = useParams();
 
   const [product, setProduct] = useState({});
+
+  const { addToCart } = useContext(ShoppingContext);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -37,7 +40,7 @@ const ProductDetails = () => {
           <p>{product.description}</p>
 
           <div className="flex gap-10">
-            <Button color="primary">
+            <Button onClick={() => addToCart(product)} color="primary">
               <MdShoppingCart className="text-xl" /> Añadir al carrito
             </Button>
             <Button color="danger" variant="flat">
