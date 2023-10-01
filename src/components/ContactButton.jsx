@@ -6,13 +6,13 @@ import { NavLink } from "react-router-dom";
 const ContactButton = () => {
   return (
     <NavbarItem className="hidden sm:flex">
-      <Tooltip color="primary" content={"Ayuda / Contacto"}>
+      <Tooltip closeDelay={50} color="primary" content={"Ayuda / Contacto"}>
         <Button
           color="primary"
           variant="light"
           isIconOnly
           as={NavLink}
-          to={"/contact"}
+          to={"contact"}
         >
           <MdHelp className="text-2xl" />
         </Button>

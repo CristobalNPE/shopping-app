@@ -59,14 +59,14 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-10" justify="center">
-        <NavbarBrand as={NavLink} to={"/"}>
+        <NavbarBrand as={NavLink} to={"."}>
           <Image className=" " src={Logo} width={50} />
           <p className="font-bold text-inherit">Shopper&#39;s Choice</p>
         </NavbarBrand>
         <NavbarItem className="hidden sm:flex">
           <Button
             as={NavLink}
-            to={"/products"}
+            to={"products"}
             href="#"
             variant="solid"
             color="primary"

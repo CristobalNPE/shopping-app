@@ -16,7 +16,7 @@ const CartPopover = () => {
           <h1 className="">Total:</h1>
           <h1 className="">$ 666.66</h1>
         </div>
-        <Button variant="ghost" color="success" as={NavLink} to={"/cart"}>
+        <Button variant="ghost" color="success" as={NavLink} to={"cart"}>
           Ir al carrito
         </Button>
       </div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Footer from "./components/Footer";
 const App = () => {
   const [nightMode, setNightMode] = useState(false);
+  const [shoppingCart, setShoppingCart] = useState([]); //Maybe should use something like context?
 
   const switchNightMode = () => {
     setNightMode((prevNightMode) => !prevNightMode);

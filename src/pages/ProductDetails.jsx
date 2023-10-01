@@ -1,8 +1,8 @@
+import { Button, Chip, Image } from "@nextui-org/react";
 import { useEffect, useState } from "react";
+import { MdFavorite, MdShoppingCart } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import Page from "../components/Page";
-import { MdFavorite, MdShoppingCart } from "react-icons/md";
-import { Button, Chip, Image } from "@nextui-org/react";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -29,6 +29,7 @@ const ProductDetails = () => {
     <Page>
       <div className="flex flex-col sm:flex-row p-12 bg-background text-foreground rounded-lg gap-10 items-center">
         <Image className="min-w-[10rem] max-w-[20rem]" src={product.image} />
+
         <div className="flex flex-col gap-12">
           <Chip color="secondary">{product.category}</Chip>
           <h1 className="text-3xl font-semibold">{product.title}</h1>
