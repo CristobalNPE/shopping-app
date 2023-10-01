@@ -30,6 +30,7 @@ import AccountButton from "./AccountButton";
 import CartButton from "./CartButton";
 import FavoritesButton from "./FavoritesButton";
 import SearchBar from "./SearchBar";
+import ContactButton from "./ContactButton";
 
 export default function NavigationBar({ switchNightMode, nightMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -93,20 +94,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
             endContent={<MdNightlight />}
           />
         </NavbarItem>
-        <NavbarItem className="hidden sm:flex">
-          <Tooltip color="primary" content={"Ayuda / Contacto"}>
-            <Button
-              color="primary"
-              variant="light"
-              isIconOnly
-              as={NavLink}
-              to={"/contact"}
-            >
-              <MdHelp className="text-2xl" />
-            </Button>
-          </Tooltip>
-        </NavbarItem>
-
+        <ContactButton />
         <AccountButton />
         <FavoritesButton />
         <CartButton nightMode={nightMode} />
