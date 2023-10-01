@@ -31,6 +31,7 @@ import CartButton from "./CartButton";
 import FavoritesButton from "./FavoritesButton";
 import SearchBar from "./SearchBar";
 import ContactButton from "./ContactButton";
+import NightModeButtonSwitch from "./NightModeButtonSwitch";
 
 export default function NavigationBar({ switchNightMode, nightMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -83,17 +84,10 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
       </NavbarContent>
 
       <NavbarContent justify="center">
-        <NavbarItem className="hidden sm:flex">
-          <Switch
-            isSelected={nightMode}
-            onChange={switchNightMode}
-            defaultSelected
-            size="md"
-            color="default"
-            startContent={<MdSunny />}
-            endContent={<MdNightlight />}
-          />
-        </NavbarItem>
+        <NightModeButtonSwitch
+          nightMode={nightMode}
+          switchNightMode={switchNightMode}
+        />
         <ContactButton />
         <AccountButton />
         <FavoritesButton />
