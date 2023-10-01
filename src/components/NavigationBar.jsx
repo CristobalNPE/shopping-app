@@ -28,11 +28,11 @@ import {
   MdShoppingCart,
   MdSunny,
 } from "react-icons/md";
-import SearchBar from "./SearchBar";
 import { NavLink } from "react-router-dom";
 import AccountPopover from "./AccountPopover";
-import CartPopover from "./CartPopover";
 import CartButton from "./CartButton";
+import SearchBar from "./SearchBar";
+import FavoritesButton from "./FavoritesButton";
 
 export default function NavigationBar({ switchNightMode, nightMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -123,13 +123,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
             </Popover>
           </NavbarItem>
         </Tooltip>
-        <NavbarItem className="hidden sm:flex">
-          <Tooltip color="primary" content={"Favoritos"}>
-            <Button color="primary" variant="light" isIconOnly as={Link}>
-              <MdFavorite className="text-2xl" />
-            </Button>
-          </Tooltip>
-        </NavbarItem>
+        <FavoritesButton />
         <CartButton nightMode={nightMode} />
       </NavbarContent>
 
