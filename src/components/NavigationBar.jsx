@@ -10,9 +10,6 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
   Switch,
   Tooltip,
 } from "@nextui-org/react";
@@ -29,10 +26,10 @@ import {
   MdSunny,
 } from "react-icons/md";
 import { NavLink } from "react-router-dom";
-import AccountPopover from "./AccountPopover";
+import AccountButton from "./AccountButton";
 import CartButton from "./CartButton";
-import SearchBar from "./SearchBar";
 import FavoritesButton from "./FavoritesButton";
+import SearchBar from "./SearchBar";
 
 export default function NavigationBar({ switchNightMode, nightMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -109,20 +106,8 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
             </Button>
           </Tooltip>
         </NavbarItem>
-        <Tooltip color="primary" content={"Mi Cuenta"}>
-          <NavbarItem className="hidden sm:flex">
-            <Popover backdrop="blur" placement="bottom">
-              <PopoverTrigger>
-                <Button color="primary" variant="light" isIconOnly>
-                  <MdAccountCircle className="text-2xl" />
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent>
-                <AccountPopover />
-              </PopoverContent>
-            </Popover>
-          </NavbarItem>
-        </Tooltip>
+
+        <AccountButton />
         <FavoritesButton />
         <CartButton nightMode={nightMode} />
       </NavbarContent>
