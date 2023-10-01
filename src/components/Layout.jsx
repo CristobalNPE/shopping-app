@@ -13,10 +13,10 @@ const Layout = () => {
     <main
       className={`${
         nightMode && "dark"
-      } bg-background text-foreground  w-full min-h-screen  overflow-auto `}
+      } bg-background text-foreground  w-full min-h-screen  overflow-auto`}
     >
       <ScrollRestoration />
-      <NavigationBar switchNightMode={switchNightMode} />
+      <NavigationBar nightMode={nightMode} switchNightMode={switchNightMode} />
       <Outlet />
       <Footer />
     </main>
