@@ -1,19 +1,19 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "../App";
 import CartPage from "../pages/CartPage";
 import Catalog from "../pages/Catalog";
 import Contact from "../pages/Contact";
+import ErrorPage from "../pages/ErrorPage";
 import Favorites from "../pages/Favorites";
 import Home from "../pages/Home";
 import ProductDetails from "../pages/ProductDetails";
 import Products from "../pages/Products";
-import Layout from "./Layout";
-import ErrorPage from "../pages/ErrorPage";
 
 const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />, 
+      element: <App />, 
       errorElement: <ErrorPage/>,
       children: [
         {
@@ -21,27 +21,27 @@ const Router = () => {
           element: <Home />,
         },
         {
-          path: "/cart",
+          path: "cart",
           element: <CartPage />,
         },
         {
-          path: "/catalog",
+          path: "catalog",
           element: <Catalog />,
         },
         {
-          path: "/contact",
+          path: "contact",
           element: <Contact />,
         },
         {
-          path: "/favorites",
+          path: "favorites",
           element: <Favorites />,
         },
         {
-          path: "/products",
+          path: "products",
           element: <Products />,
         },
         {
-          path: "/products/:id",
+          path: "products/:id",
           element: <ProductDetails />,
         },
       ],
