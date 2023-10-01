@@ -1,32 +1,36 @@
-import { useState } from "react";
 import {
+  Badge,
+  Button,
+  Image,
+  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
-  NavbarMenuToggle,
   NavbarItem,
-  Link,
-  Button,
   NavbarMenu,
   NavbarMenuItem,
-  Image,
+  NavbarMenuToggle,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
   Switch,
   Tooltip,
-  Input,
-  Badge,
 } from "@nextui-org/react";
+import { useState } from "react";
 import Logo from "../assets/Logo.svg";
 
 import {
-  MdGridView,
-  MdShoppingCart,
-  MdFavorite,
-  MdSearch,
-  MdSunny,
-  MdNightlight,
   MdAccountCircle,
+  MdFavorite,
+  MdGridView,
   MdHelp,
+  MdNightlight,
+  MdShoppingCart,
+  MdSunny,
 } from "react-icons/md";
+import SearchBar from "./SearchBar";
+import { NavLink } from "react-router-dom";
+import AccountPopover from "./AccountPopover";
 
 export default function NavigationBar({ switchNightMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,6 +39,7 @@ export default function NavigationBar({ switchNightMode }) {
     <Navbar
       maxWidth="2xl"
       isBordered
+      
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
@@ -44,21 +49,24 @@ export default function NavigationBar({ switchNightMode }) {
         />
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden pr-3 " justify="center">
+      <NavbarContent className="sm:hidden pr-3" justify="start">
         <NavbarBrand>
           <Image src={Logo} width={50} />
-          <p className="font-bold text-inherit ">Shopper&#39;s Choice</p>
+          <p className="hidden lg:flex font-bold text-inherit ">
+            Shopper&#39;s Choice
+          </p>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-10" justify="center">
-        <NavbarBrand>
+        <NavbarBrand as={NavLink} to={"/"}>
           <Image className=" " src={Logo} width={50} />
           <p className="font-bold text-inherit">Shopper&#39;s Choice</p>
         </NavbarBrand>
         <NavbarItem className="hidden sm:flex">
           <Button
-            as={Link}
+            as={NavLink}
+            to={"/products"}
             href="#"
             variant="solid"
             color="primary"
@@ -71,15 +79,10 @@ export default function NavigationBar({ switchNightMode }) {
       </NavbarContent>
 
       <NavbarContent className="hidden md:flex ml-5" justify="start">
-        <Input
-          color="default"
-          size="xl"
-          placeholder="Buscar productos"
-          endContent={<MdSearch className="text-2xl" />}
-        />
+        <SearchBar />
       </NavbarContent>
 
-      <NavbarContent justify="end">
+      <NavbarContent justify="center">
         <NavbarItem className="hidden sm:flex">
           <Switch
             onChange={switchNightMode}
@@ -92,18 +95,31 @@ export default function NavigationBar({ switchNightMode }) {
         </NavbarItem>
         <NavbarItem className="hidden sm:flex">
           <Tooltip color="primary" content={"Ayuda / Contacto"}>
-            <Button color="primary" variant="light" isIconOnly as={Link}>
+            <Button
+              color="primary"
+              variant="light"
+              isIconOnly
+              as={NavLink}
+              to={"/contact"}
+            >
               <MdHelp className="text-2xl" />
             </Button>
           </Tooltip>
         </NavbarItem>
-        <NavbarItem className="hidden sm:flex">
-          <Tooltip color="primary" content={"Mi Cuenta"}>
-            <Button color="primary" variant="light" isIconOnly as={Link}>
-              <MdAccountCircle className="text-2xl" />
-            </Button>
-          </Tooltip>
-        </NavbarItem>
+        <Tooltip color="primary" content={"Mi Cuenta"}>
+          <NavbarItem className="hidden sm:flex">
+            <Popover  backdrop="blur"  placement="bottom">
+              <PopoverTrigger>
+                <Button color="primary" variant="light" isIconOnly>
+                  <MdAccountCircle className="text-2xl" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent>
+                <AccountPopover/>
+              </PopoverContent>
+            </Popover>
+          </NavbarItem>
+        </Tooltip>
         <NavbarItem className="hidden sm:flex">
           <Tooltip color="primary" content={"Favoritos"}>
             <Button color="primary" variant="light" isIconOnly as={Link}>
@@ -140,9 +156,12 @@ export default function NavigationBar({ switchNightMode }) {
           </Link>
         </NavbarMenuItem>
         <NavbarMenuItem>
-          <Link className="flex gap-2 items-center  mt-5 mb-4 text-2xl">
+          <NavLink
+            to={"/products"}
+            className="flex gap-2 items-center  mt-5 mb-4 text-2xl"
+          >
             <MdGridView className="text-4xl" /> Catálogo de Productos
-          </Link>
+          </NavLink>
         </NavbarMenuItem>
         <NavbarMenuItem>
           <Link className="flex gap-2 items-center  mt-5 mb-4 text-2xl">

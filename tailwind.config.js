@@ -30,19 +30,19 @@ export default {
             },
             secondary: {
               foreground: "#FFFFFF",
-              DEFAULT: "#046FD3",
+              DEFAULT: "#069ED1",
             },
             success: {
               foreground: "#FFFFFF",
-              DEFAULT: "#13BF5A",
+              DEFAULT: "#0BA85C",
             },
             warning: {
               foreground: "#FFFFFF",
-              DEFAULT: "#FFB807",
+              DEFAULT: "#FCAE07",
             },
             danger: {
               foreground: "#FFFFFF",
-              DEFAULT: "#E03367",
+              DEFAULT: "#D32C3F",
             },
 
             // ... rest of the colors
@@ -63,19 +63,19 @@ export default {
             },
             secondary: {
               foreground: "#FFFFFF",
-              DEFAULT: "#046FD3",
+              DEFAULT: "#069ED1",
             },
             success: {
               foreground: "#FFFFFF",
-              DEFAULT: "#13BF5A",
+              DEFAULT: "#0BA85C",
             },
             warning: {
               foreground: "#FFFFFF",
-              DEFAULT: "#FFB807",
+              DEFAULT: "#FCAE07",
             },
             danger: {
               foreground: "#FFFFFF",
-              DEFAULT: "#E03367",
+              DEFAULT: "#D32C3F",
             },
           },
           // ... rest of the colors
