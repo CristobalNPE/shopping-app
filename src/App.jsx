@@ -9,6 +9,7 @@ export const ShoppingContext = createContext({
   addToCart: () => {},
   getTotalItemsInCart: () => {},
   increaseItemAmount: () => {},
+  decreaseItemAmount: () => {},
 });
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
       { ...item, amount: 1, total: item.price },
     ]);
   };
+  //removeFromCart
 
   const increaseItemAmount = (itemId) => {
     let updatedCartItems = cartItems.map((cartItem) => {
@@ -36,15 +38,24 @@ const App = () => {
 
     setCartItems(updatedCartItems);
   };
-  // const decreaseItemAmount = (itemId) => {
-  //   // let updatedCartItems = cartItems.map((cartItem) => {
-  //   //   if (cartItem.id === itemId) {
-  //   //     return { ...cartItem, amount: cartItem.amount + 1 };
-  //   //   }
-  //   //   return cartItem;
-  //   // });
-  //   // setCartItems(updatedCartItems);
-  // };
+  const decreaseItemAmount = (itemId) => {
+    let updatedCartItems = cartItems.map((cartItem) => {
+      if (cartItem.id === itemId) {
+        if (cartItem.amount > 1) {
+          return {
+            ...cartItem,
+            amount: cartItem.amount - 1,
+            total: roundNumber(cartItem.total - cartItem.price),
+          };
+        } else {
+          return null;
+        }
+      }
+      return cartItem;
+    });
+    updatedCartItems = updatedCartItems.filter((item) => item !== null);
+    setCartItems(updatedCartItems);
+  };
 
   const getTotalItemsInCart = () => {
     let itemAmounts = cartItems.map((i) => i.amount);
@@ -69,6 +80,7 @@ const App = () => {
           addToCart,
           getTotalItemsInCart,
           increaseItemAmount,
+          decreaseItemAmount,
         }}
       >
         <NavigationBar
