@@ -1,7 +1,7 @@
+import { createContext, useState } from "react";
 import { Outlet, ScrollRestoration } from "react-router-dom";
-import NavigationBar from "./components/NavigationBar";
-import { useState, createContext, useEffect } from "react";
 import Footer from "./components/Footer";
+import NavigationBar from "./components/NavigationBar";
 import { roundNumber } from "./utils/utils";
 
 export const ShoppingContext = createContext({
@@ -9,23 +9,17 @@ export const ShoppingContext = createContext({
   addToCart: () => {},
   getTotalItemsInCart: () => {},
   increaseItemAmount: () => {},
-  getItemFromCart: () => {},
 });
 
 const App = () => {
   const [nightMode, setNightMode] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
-  //separate add to cart and increase/decrease amount
   const addToCart = (item) => {
     setCartItems((prevCartItems) => [
       ...prevCartItems,
       { ...item, amount: 1, total: item.price },
     ]);
-  };
-
-  const getItemFromCart =  (itemId) => {
-    return  cartItems.find((i) => i.id === itemId);
   };
 
   const increaseItemAmount = (itemId) => {
@@ -42,15 +36,15 @@ const App = () => {
 
     setCartItems(updatedCartItems);
   };
-  const decreaseItemAmount = (itemId) => {
-    // let updatedCartItems = cartItems.map((cartItem) => {
-    //   if (cartItem.id === itemId) {
-    //     return { ...cartItem, amount: cartItem.amount + 1 };
-    //   }
-    //   return cartItem;
-    // });
-    // setCartItems(updatedCartItems);
-  };
+  // const decreaseItemAmount = (itemId) => {
+  //   // let updatedCartItems = cartItems.map((cartItem) => {
+  //   //   if (cartItem.id === itemId) {
+  //   //     return { ...cartItem, amount: cartItem.amount + 1 };
+  //   //   }
+  //   //   return cartItem;
+  //   // });
+  //   // setCartItems(updatedCartItems);
+  // };
 
   const getTotalItemsInCart = () => {
     let itemAmounts = cartItems.map((i) => i.amount);
@@ -75,7 +69,6 @@ const App = () => {
           addToCart,
           getTotalItemsInCart,
           increaseItemAmount,
-          getItemFromCart,
         }}
       >
         <NavigationBar

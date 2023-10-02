@@ -54,8 +54,6 @@ const ProductDetails = () => {
                 <MdShoppingCart className="text-xl" /> Añadir al carrito
               </Button>
             )}
-
-            {/* <QuantityControl size="lg"/> */}
             <Button color="danger" variant="flat">
               <MdFavorite className="text-xl" /> Añadir a favoritos
             </Button>
