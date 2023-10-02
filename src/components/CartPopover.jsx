@@ -5,7 +5,7 @@ import { ShoppingContext } from "../App";
 import ProductHorizontalCard from "./ProductHorizontalCard";
 import { roundNumber } from "../utils/utils";
 
-const CartPopover = () => {
+const CartPopover = ({ setIsOpen }) => {
   const { cartItems, getTotalItemsInCart } = useContext(ShoppingContext);
 
   const subtotal = roundNumber(
@@ -29,6 +29,7 @@ const CartPopover = () => {
             variant="shadow"
             as={NavLink}
             to={"products"}
+            onClick={() => setIsOpen(false)}
           >
             Ver Catálogo
           </Button>
@@ -37,7 +38,6 @@ const CartPopover = () => {
         <h1 className="text-2xl font-light">
           Tienes <span className="font-semibold">{getTotalItemsInCart()}</span>{" "}
           {getTotalItemsInCart() > 1 ? "productos" : "producto"}
-   
         </h1>
       )}
 
@@ -50,7 +50,13 @@ const CartPopover = () => {
           <h1 className="">Subtotal:</h1>
           <h1 className="">$ {subtotal}</h1>
         </div>
-        <Button variant="ghost" color="success" as={NavLink} to={"cart"}>
+        <Button
+          onClick={() => setIsOpen(false)}
+          variant="ghost"
+          color="success"
+          as={NavLink}
+          to={"cart"}
+        >
           Ir al Detalle
         </Button>
       </div>
