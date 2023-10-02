@@ -3,6 +3,7 @@ import { Outlet, ScrollRestoration } from "react-router-dom";
 import Footer from "./components/Footer";
 import NavigationBar from "./components/NavigationBar";
 import { roundNumber } from "./utils/utils";
+import { discounts } from "./utils/discounts";
 
 export const ShoppingContext = createContext({
   cartItems: [],
@@ -11,6 +12,8 @@ export const ShoppingContext = createContext({
   increaseItemAmount: () => {},
   decreaseItemAmount: () => {},
   removeFromCart: () => {},
+  emptyCart: () => {},
+  applyDiscount: () => {},
 });
 
 const App = () => {
@@ -23,7 +26,7 @@ const App = () => {
       { ...item, amount: 1, total: item.price },
     ]);
   };
-  //removeFromCart
+
   const removeFromCart = (itemId) => {
     let updatedCartItems = cartItems.map((cartItem) => {
       if (cartItem.id === itemId) {
@@ -33,6 +36,10 @@ const App = () => {
     });
     updatedCartItems = updatedCartItems.filter((item) => item !== null);
     setCartItems(updatedCartItems);
+  };
+
+  const emptyCart = () => {
+    setCartItems([]);
   };
 
   const increaseItemAmount = (itemId) => {
@@ -74,6 +81,21 @@ const App = () => {
     return total;
   };
 
+  const applyDiscount = (code) => {
+    const subtotal = roundNumber(
+      cartItems.map((item) => item.total).reduce((x, y) => x + y, 0)
+    );
+
+    let discountTotal = 0;
+    let total = subtotal;
+    const discount = discounts.find((d) => d.code === code);
+    if (discount !== undefined) {
+      discountTotal = roundNumber((subtotal * discount.discountPercent) / 100);
+      total = roundNumber(subtotal - discountTotal);
+    }
+    return { discountTotal, total };
+  };
+
   const switchNightMode = () => {
     setNightMode((prevNightMode) => !prevNightMode);
   };
@@ -93,6 +115,8 @@ const App = () => {
           increaseItemAmount,
           decreaseItemAmount,
           removeFromCart,
+          emptyCart,
+          applyDiscount,
         }}
       >
         <NavigationBar

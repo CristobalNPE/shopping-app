@@ -8,6 +8,7 @@ const ProductHorizontalCard = ({ item }) => {
   const { removeFromCart } = useContext(ShoppingContext);
 
   return (
+    
     <>
       <article className="flex  justify-between py-3 pr-2 items-center">
         <div className="flex gap-4 items-center">

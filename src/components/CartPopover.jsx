@@ -37,7 +37,7 @@ const CartPopover = () => {
         <h1 className="text-2xl font-light">
           Tienes <span className="font-semibold">{getTotalItemsInCart()}</span>{" "}
           {getTotalItemsInCart() > 1 ? "productos" : "producto"}
-          {/* 👆 Change to calculating amount and fix plural/singular */}
+   
         </h1>
       )}
 
