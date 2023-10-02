@@ -16,7 +16,6 @@ const CartPopover = ({ setIsOpen }) => {
     <ProductHorizontalCard key={item.id} item={item} />
   ));
 
-  // Making it "Controlled" may be the solution to setIt to close when clicking on cart link
   return (
     <aside className="hidden sm:flex flex-col h-[calc(100vh-5rem)] w-[clamp(35rem,25vw,40rem)] p-3">
       {cartItems.length === 0 ? (
