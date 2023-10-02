@@ -1,7 +1,12 @@
 import { Button, Image } from "@nextui-org/react";
 import QuantityControl from "./QuantityControl";
+import { useContext } from "react";
+import { ShoppingContext } from "../App";
 const ProductHorizontalCard = ({ item }) => {
   const { id, title, image, amount, total } = item;
+
+  const { removeFromCart } = useContext(ShoppingContext);
+
   return (
     <>
       <article className="flex  justify-between py-3 pr-2 items-center">
@@ -11,7 +16,6 @@ const ProductHorizontalCard = ({ item }) => {
             <h1 className="text-md font-regular ">{title}</h1>
             <div className="flex gap-1 w-28">
               <QuantityControl amount={amount} id={id} />
-              {/* 👆  Pass amount here */}
             </div>
           </div>
         </div>
@@ -21,7 +25,7 @@ const ProductHorizontalCard = ({ item }) => {
             size="sm"
             color="danger"
             variant="light"
-            onClick={() => alert(`Deleted ID ${id}`)}
+            onClick={() => removeFromCart(id)}
           >
             Eliminar
           </Button>

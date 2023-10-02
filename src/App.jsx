@@ -10,6 +10,7 @@ export const ShoppingContext = createContext({
   getTotalItemsInCart: () => {},
   increaseItemAmount: () => {},
   decreaseItemAmount: () => {},
+  removeFromCart: () => {},
 });
 
 const App = () => {
@@ -23,6 +24,16 @@ const App = () => {
     ]);
   };
   //removeFromCart
+  const removeFromCart = (itemId) => {
+    let updatedCartItems = cartItems.map((cartItem) => {
+      if (cartItem.id === itemId) {
+        return null;
+      }
+      return cartItem;
+    });
+    updatedCartItems = updatedCartItems.filter((item) => item !== null);
+    setCartItems(updatedCartItems);
+  };
 
   const increaseItemAmount = (itemId) => {
     let updatedCartItems = cartItems.map((cartItem) => {
@@ -81,6 +92,7 @@ const App = () => {
           getTotalItemsInCart,
           increaseItemAmount,
           decreaseItemAmount,
+          removeFromCart,
         }}
       >
         <NavigationBar
