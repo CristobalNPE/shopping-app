@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 const ContactButton = () => {
   return (
     <NavbarItem className="hidden sm:flex">
-      <Tooltip closeDelay={50} color="primary" content={"Ayuda / Contacto"}>
+      <Tooltip delay={800} closeDelay={50} color="primary" content={"Ayuda / Contacto"}>
         <Button
           color="primary"
           variant="light"

@@ -4,6 +4,7 @@ import { MdFavorite, MdShoppingCart } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import Page from "../components/Page";
 import { ShoppingContext } from "../App";
+import QuantityControl from "../components/QuantityControl";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -43,9 +44,14 @@ const ProductDetails = () => {
             <Button onClick={() => addToCart(product)} color="primary">
               <MdShoppingCart className="text-xl" /> Añadir al carrito
             </Button>
+            {/* <QuantityControl size="lg"/> */}
             <Button color="danger" variant="flat">
               <MdFavorite className="text-xl" /> Añadir a favoritos
             </Button>
+
+            {/* <Button color="danger" variant="ghost">
+              <MdFavorite className="text-xl" /> Quitar de favoritos
+            </Button> */}
           </div>
         </div>
       </div>

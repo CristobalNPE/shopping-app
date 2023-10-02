@@ -13,7 +13,7 @@ const App = () => {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item) => {
-    setCartItems((prevCartItems) => [...prevCartItems, item]);
+    setCartItems((prevCartItems) => [...prevCartItems, { ...item, amount: 1 }]);
   };
 
   const switchNightMode = () => {

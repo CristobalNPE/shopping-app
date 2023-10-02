@@ -18,7 +18,7 @@ const CartButton = ({ nightMode }) => {
   const { cartItems } = useContext(ShoppingContext);
 
   return (
-    <Tooltip closeDelay={50} color="primary" content={"Ver carrito"}>
+    <Tooltip delay={800} closeDelay={50} color="primary" content={"Ver carrito"}>
       <NavbarItem className="hidden sm:flex">
         <Popover shouldBlockScroll backdrop="opaque" placement="bottom-end">
           <PopoverTrigger>

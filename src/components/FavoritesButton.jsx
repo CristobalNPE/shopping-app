@@ -12,7 +12,7 @@ import {
 const FavoritesButton = () => {
   return (
     <NavbarItem className="hidden sm:flex">
-      <Tooltip closeDelay={50} color="primary" content={"Favoritos"}>
+      <Tooltip delay={800} closeDelay={50} color="primary" content={"Favoritos"}>
         <Button color="primary" variant="light" isIconOnly as={Link}>
           <MdFavorite className="text-2xl" />
         </Button>

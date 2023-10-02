@@ -15,7 +15,7 @@ import AccountPopover from "./AccountPopover";
 
 const AccountButton = () => {
   return (
-    <Tooltip closeDelay={50} color="primary" content={"Mi Cuenta"}>
+    <Tooltip delay={800} closeDelay={50} color="primary" content={"Mi Cuenta"}>
       <NavbarItem className="hidden sm:flex">
         <Popover backdrop="blur" placement="bottom">
           <PopoverTrigger>
