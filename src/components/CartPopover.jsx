@@ -5,10 +5,10 @@ import { ShoppingContext } from "../App";
 import ProductHorizontalCard from "./ProductHorizontalCard";
 
 const CartPopover = () => {
-  const { cartItems } = useContext(ShoppingContext);
+  const { cartItems, getTotalItemsInCart } = useContext(ShoppingContext);
 
   const productHorizontalCardsElements = cartItems.map((item) => (
-    <ProductHorizontalCard key={item.id} {...item} />
+    <ProductHorizontalCard key={item.id} item={item} />
   ));
 
   // Making it "Controlled" may be the solution to setIt to close when clicking on cart link
@@ -30,8 +30,9 @@ const CartPopover = () => {
         </div>
       ) : (
         <h1 className="text-2xl font-light">
-          Tienes <span className="font-semibold">{cartItems.length}</span>{" "}
-          productos
+          Tienes <span className="font-semibold">{getTotalItemsInCart()}</span>{" "}
+          {getTotalItemsInCart() > 1 ? "productos" : "producto"}
+          {/* 👆 Change to calculating amount and fix plural/singular */}
         </h1>
       )}
 
@@ -41,11 +42,11 @@ const CartPopover = () => {
 
       <div className="flex flex-col gap-5">
         <div className="flex justify-between text-xl font-bold mt-8">
-          <h1 className="">Total:</h1>
+          <h1 className="">Subtotal:</h1>
           <h1 className="">$ 666.66</h1>
         </div>
         <Button variant="ghost" color="success" as={NavLink} to={"cart"}>
-          Ir al carrito
+          Ir al Detalle
         </Button>
       </div>
     </aside>

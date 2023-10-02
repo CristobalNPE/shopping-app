@@ -15,7 +15,7 @@ import { useContext } from "react";
 import { ShoppingContext } from "../App";
 
 const CartButton = ({ nightMode }) => {
-  const { cartItems } = useContext(ShoppingContext);
+  const { getTotalItemsInCart } = useContext(ShoppingContext);
 
   return (
     <Tooltip delay={800} closeDelay={50} color="primary" content={"Ver carrito"}>
@@ -25,10 +25,10 @@ const CartButton = ({ nightMode }) => {
             <Button color="primary" variant="light" isIconOnly as={Link}>
               <Badge
                 color="danger"
-                content={cartItems.length}
+                content={getTotalItemsInCart()}
                 shape="circle"
                 size="lg"
-                className={`${cartItems.length === 0 && "hidden"}`}
+                className={`${getTotalItemsInCart() === 0 && "hidden"}`}
               >
                 <MdShoppingCart className="text-2xl" />
               </Badge>

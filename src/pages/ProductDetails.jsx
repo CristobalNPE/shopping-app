@@ -11,7 +11,7 @@ const ProductDetails = () => {
 
   const [product, setProduct] = useState({});
 
-  const { addToCart } = useContext(ShoppingContext);
+  const { addToCart, cartItems } = useContext(ShoppingContext);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -29,6 +29,8 @@ const ProductDetails = () => {
     fetchProduct();
   }, [id]);
 
+  const productInCart = cartItems.find((item) => item.id === product.id);
+
   return (
     <Page>
       <div className="flex flex-col sm:flex-row p-12 bg-background text-foreground rounded-lg gap-10 items-center">
@@ -41,9 +43,18 @@ const ProductDetails = () => {
           <p>{product.description}</p>
 
           <div className="flex gap-10">
-            <Button onClick={() => addToCart(product)} color="primary">
-              <MdShoppingCart className="text-xl" /> Añadir al carrito
-            </Button>
+            {productInCart !== undefined ? (
+              <QuantityControl
+                id={product.id}
+                size="lg"
+                amount={productInCart.amount}
+              />
+            ) : (
+              <Button onClick={() => addToCart(product)} color="primary">
+                <MdShoppingCart className="text-xl" /> Añadir al carrito
+              </Button>
+            )}
+
             {/* <QuantityControl size="lg"/> */}
             <Button color="danger" variant="flat">
               <MdFavorite className="text-xl" /> Añadir a favoritos
