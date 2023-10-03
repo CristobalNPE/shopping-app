@@ -44,7 +44,7 @@ const CartPage = () => {
         <RedirectCard
           title={`Tu carro está vacío`}
           subtitle={`Busca productos en nuestro catálogo`}
-          toLink={`products`}
+          toLink={`/products`}
         />
       ) : (
         <article className="flex flex-col gap-12 sm:flex-row">
