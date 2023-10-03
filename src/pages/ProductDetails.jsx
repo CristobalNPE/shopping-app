@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Page from "../components/Page";
 import QuantityControl from "../components/QuantityControl";
 import useShoppingCart from "../hooks/useShoppingCart";
+import useFavorites from "../hooks/useFavorites";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -12,6 +13,13 @@ const ProductDetails = () => {
   const [product, setProduct] = useState({});
 
   const { addToCart, cartItems } = useShoppingCart();
+  const { favorites, toggleFavorite, isFavorite } = useFavorites();
+
+
+
+  useEffect(() => {
+    console.log(favorites);
+  }, [favorites]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -54,13 +62,23 @@ const ProductDetails = () => {
                 <MdShoppingCart className="text-xl" /> Añadir al carrito
               </Button>
             )}
-            <Button color="danger" variant="flat">
-              <MdFavorite className="text-xl" /> Añadir a favoritos
-            </Button>
-
-            {/* <Button color="danger" variant="ghost">
-              <MdFavorite className="text-xl" /> Quitar de favoritos
-            </Button> */}
+            {!isFavorite(product.id) ? (
+              <Button
+                color="danger"
+                variant="flat"
+                onClick={() => toggleFavorite(product.id)}
+              >
+                <MdFavorite className="text-xl" /> Añadir a favoritos
+              </Button>
+            ) : (
+              <Button
+                color="danger"
+                variant="ghost"
+                onClick={() => toggleFavorite(product.id)}
+              >
+                <MdFavorite className="text-xl" /> Quitar de favoritos
+              </Button>
+            )}
           </div>
         </div>
       </div>

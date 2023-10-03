@@ -3,6 +3,7 @@ import { Outlet, ScrollRestoration } from "react-router-dom";
 import Footer from "./components/Footer";
 import NavigationBar from "./components/NavigationBar";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
+import { FavoritesProvider } from "./context/FavoritesContext";
 
 const App = () => {
   const [nightMode, setNightMode] = useState(false);
@@ -20,12 +21,14 @@ const App = () => {
       <ScrollRestoration />
 
       <ShoppingCartProvider>
-        <NavigationBar
-          nightMode={nightMode}
-          switchNightMode={switchNightMode}
-        />
-        <Outlet />
-        <Footer />
+        <FavoritesProvider>
+          <NavigationBar
+            nightMode={nightMode}
+            switchNightMode={switchNightMode}
+          />
+          <Outlet />
+          <Footer />
+        </FavoritesProvider>
       </ShoppingCartProvider>
     </main>
   );

@@ -10,16 +10,15 @@ export function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
 
   const toggleFavorite = (productId) => {
-    let updatedFavorites = favorites.map((favorite) => {
-      if (favorite === productId) {
-        return null;
-      }
-      return favorite;
-    });
-
-    updatedFavorites = updatedFavorites.filter((f) => f === null);
-
-    setFavorites(updatedFavorites);
+    if (favorites.includes(productId)) {
+      const updatedFavorites = favorites.filter(
+        (favorite) => favorite !== productId,
+      );
+      setFavorites(updatedFavorites);
+    } else {
+      const updatedFavorites = [...favorites, productId];
+      setFavorites(updatedFavorites);
+    }
   };
 
   const isFavorite = (productId) => {
@@ -27,13 +26,13 @@ export function FavoritesProvider({ children }) {
   };
 
   return (
-    <FavoritesContext.Provider>
-      value=
-      {{
+    <FavoritesContext.Provider
+      value={{
         favorites,
         toggleFavorite,
         isFavorite,
       }}
+    >
       {children}
     </FavoritesContext.Provider>
   );
