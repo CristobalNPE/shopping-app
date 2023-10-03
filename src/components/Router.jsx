@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "../App";
 import CartPage from "../pages/CartPage";
-import Catalog from "../pages/Catalog";
 import Contact from "../pages/Contact";
 import ErrorPage from "../pages/ErrorPage";
 import Favorites from "../pages/Favorites";
@@ -13,8 +12,8 @@ const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <App />, 
-      errorElement: <ErrorPage/>,
+      element: <App />,
+      errorElement: <ErrorPage />,
       children: [
         {
           index: true,
@@ -24,10 +23,7 @@ const Router = () => {
           path: "cart",
           element: <CartPage />,
         },
-        {
-          path: "catalog",
-          element: <Catalog />,
-        },
+
         {
           path: "contact",
           element: <Contact />,
@@ -46,7 +42,6 @@ const Router = () => {
         },
       ],
     },
-    
   ]);
   return <RouterProvider router={router} />;
 };
