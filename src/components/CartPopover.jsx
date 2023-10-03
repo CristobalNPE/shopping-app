@@ -1,12 +1,11 @@
 import { Button } from "@nextui-org/react";
-import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { ShoppingContext } from "../App";
-import ProductHorizontalCard from "./ProductHorizontalCard";
+import useShoppingCart from "../hooks/useShoppingCart";
 import { roundNumber } from "../utils/utils";
+import ProductHorizontalCard from "./ProductHorizontalCard";
 
 const CartPopover = ({ setIsOpen }) => {
-  const { cartItems, getTotalItemsInCart } = useContext(ShoppingContext);
+  const { cartItems, getTotalItemsInCart } = useShoppingCart();
 
   const subtotal = roundNumber(
     cartItems.map((item) => item.total).reduce((x, y) => x + y, 0),

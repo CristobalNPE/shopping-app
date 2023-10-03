@@ -9,13 +9,13 @@ import {
   Tooltip,
 } from "@nextui-org/react";
 
+import { useState } from "react";
 import { MdShoppingCart } from "react-icons/md";
+import useShoppingCart from "../hooks/useShoppingCart";
 import CartPopover from "./CartPopover";
-import { useContext, useState } from "react";
-import { ShoppingContext } from "../App";
 
 const CartButton = ({ nightMode }) => {
-  const { getTotalItemsInCart } = useContext(ShoppingContext);
+  const { getTotalItemsInCart } = useShoppingCart();
   const [isOpen, setIsOpen] = useState(false);
 
   return (

@@ -1,17 +1,17 @@
 import { Button, Chip, Image } from "@nextui-org/react";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MdFavorite, MdShoppingCart } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import Page from "../components/Page";
-import { ShoppingContext } from "../App";
 import QuantityControl from "../components/QuantityControl";
+import useShoppingCart from "../hooks/useShoppingCart";
 
 const ProductDetails = () => {
   const { id } = useParams();
 
   const [product, setProduct] = useState({});
 
-  const { addToCart, cartItems } = useContext(ShoppingContext);
+  const { addToCart, cartItems } = useShoppingCart();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -33,7 +33,7 @@ const ProductDetails = () => {
 
   return (
     <Page>
-      <div className="flex flex-col sm:flex-row p-12 bg-background text-foreground rounded-lg gap-10 items-center">
+      <div className="flex flex-col items-center gap-10 rounded-lg bg-background p-12 text-foreground sm:flex-row">
         <Image className="min-w-[10rem] max-w-[20rem]" src={product.image} />
 
         <div className="flex flex-col gap-12">

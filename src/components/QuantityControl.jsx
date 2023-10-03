@@ -1,10 +1,8 @@
-import { ButtonGroup, Button } from "@nextui-org/react";
-import { useContext } from "react";
+import { Button, ButtonGroup } from "@nextui-org/react";
 import { MdAdd, MdRemove } from "react-icons/md";
-import { ShoppingContext } from "../App";
+import useShoppingCart from "../hooks/useShoppingCart";
 const QuantityControl = ({ amount, size, id }) => {
-  const { increaseItemAmount, decreaseItemAmount } =
-    useContext(ShoppingContext);
+  const { increaseItemAmount, decreaseItemAmount } = useShoppingCart();
 
   if (size === "lg") {
     return (
@@ -18,7 +16,7 @@ const QuantityControl = ({ amount, size, id }) => {
         >
           <MdRemove />
         </Button>
-        <span className="py-2 w-fit px-5 text-md w text-center">{`${amount} ${
+        <span className="text-md w w-fit px-5 py-2 text-center">{`${amount} ${
           amount > 1 ? "unidades" : "unidad"
         }`}</span>
         <Button
@@ -45,7 +43,7 @@ const QuantityControl = ({ amount, size, id }) => {
       >
         <MdRemove />
       </Button>
-      <span className="py-2 max-w-12 w-8 text-xl text-center">{amount}</span>
+      <span className="max-w-12 w-8 py-2 text-center text-xl">{amount}</span>
       <Button
         onClick={() => increaseItemAmount(id)}
         variant="flat"
