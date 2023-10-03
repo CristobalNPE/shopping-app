@@ -17,10 +17,12 @@ import CartPopover from "./CartPopover";
 const CartButton = ({ nightMode }) => {
   const { getTotalItemsInCart } = useShoppingCart();
   const [isOpen, setIsOpen] = useState(false);
-
+  const [ttIsOpen, setTtisOpen] = useState(false);
   return (
     <Tooltip
-      delay={800}
+      isOpen={ttIsOpen}
+      onOpenChange={(open) => setTtisOpen(open)}
+      delay={0}
       closeDelay={50}
       color="primary"
       content={"Ver carrito"}
@@ -34,7 +36,13 @@ const CartButton = ({ nightMode }) => {
           onOpenChange={(open) => setIsOpen(open)}
         >
           <PopoverTrigger>
-            <Button color="primary" variant="light" isIconOnly as={Link}>
+            <Button
+              color="primary"
+              variant="light"
+              isIconOnly
+              as={Link}
+              onClick={() => setTtisOpen(!ttIsOpen)}
+            >
               <Badge
                 color="danger"
                 content={getTotalItemsInCart()}
@@ -62,3 +70,7 @@ const CartButton = ({ nightMode }) => {
 };
 
 export default CartButton;
+
+//Button name (tooltip content)
+//hasPopover? if it has render
+//icon
