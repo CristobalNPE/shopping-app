@@ -9,7 +9,7 @@ const CartPopover = ({ setIsOpen }) => {
   const { cartItems, getTotalItemsInCart } = useContext(ShoppingContext);
 
   const subtotal = roundNumber(
-    cartItems.map((item) => item.total).reduce((x, y) => x + y, 0)
+    cartItems.map((item) => item.total).reduce((x, y) => x + y, 0),
   );
 
   const productHorizontalCardsElements = cartItems.map((item) => (
@@ -17,9 +17,9 @@ const CartPopover = ({ setIsOpen }) => {
   ));
 
   return (
-    <aside className="hidden sm:flex flex-col h-[calc(100vh-5rem)] w-[clamp(35rem,25vw,40rem)] p-3">
+    <aside className="hidden h-[calc(100vh-5rem)] w-[clamp(35rem,25vw,40rem)] flex-col p-3 sm:flex">
       {cartItems.length === 0 ? (
-        <div className="flex flex-col h-full items-center justify-center">
+        <div className="flex h-full flex-col items-center justify-center">
           <h1 className="text-2xl font-normal">Tu carro está vacío</h1>
           <h2>Busca productos en nuestro catálogo</h2>
           <Button
@@ -40,12 +40,12 @@ const CartPopover = ({ setIsOpen }) => {
         </h1>
       )}
 
-      <div className="grow mt-5 overflow-auto">
+      <div className="mt-5 grow overflow-auto">
         {productHorizontalCardsElements}
       </div>
 
       <div className="flex flex-col gap-5">
-        <div className="flex justify-between text-xl font-bold mt-8">
+        <div className="mt-8 flex justify-between text-xl font-bold">
           <h1 className="">Subtotal:</h1>
           <h1 className="">$ {subtotal}</h1>
         </div>

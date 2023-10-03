@@ -4,7 +4,7 @@ import {
   CardFooter,
   CardHeader,
   Chip,
-  Image
+  Image,
 } from "@nextui-org/react";
 import { MdStar } from "react-icons/md";
 import { NavLink } from "react-router-dom";
@@ -15,7 +15,7 @@ const ProductCard = ({ id, title, price, category, image, rating }) => {
       as={NavLink}
       to={`/products/${id}`}
       shadow="sm"
-      className="drop-shadow-lg p-3 bg-background text-foreground max-w-[20rem] hover:shadow-inner"
+      className="max-w-[20rem] bg-background p-3 text-foreground drop-shadow-lg hover:shadow-inner"
     >
       <CardHeader className="flex justify-end">
         <span className="flex items-center gap-1">
@@ -23,12 +23,12 @@ const ProductCard = ({ id, title, price, category, image, rating }) => {
         </span>
       </CardHeader>
       <CardBody className="max-h-[15rem] p-0">
-        <div className="flex justify-center h-[15rem]  items-center max-w-xs mx-auto overflow-clip ">
+        <div className="mx-auto flex h-[15rem]  max-w-xs items-center justify-center overflow-clip ">
           <Image alt={`Image of product ${title}`} src={image} width={150} />
         </div>
       </CardBody>
       <CardFooter className="flex   h-1/2">
-        <div className="flex flex-col  h-full justify-between">
+        <div className="flex h-full  flex-col justify-between">
           <h1 className="font-semibold">{title}</h1>
           <h2 className="text-2xl font-bold">$ {price}</h2>
           <Chip className="mt-2" color="secondary">

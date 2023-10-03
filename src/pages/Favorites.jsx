@@ -1,5 +1,12 @@
+import Page from "../components/Page";
+import PageTitle from "../components/PageTitle";
+
 const Favorites = () => {
-  return ( <h1>Favorites Page</h1> );
-}
- 
+  return (
+    <Page>
+      <PageTitle>Mis favoritos</PageTitle>
+    </Page>
+  );
+};
+
 export default Favorites;

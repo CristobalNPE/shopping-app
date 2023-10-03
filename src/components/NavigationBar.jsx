@@ -49,16 +49,16 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
         />
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden pr-3" justify="start">
+      <NavbarContent className="pr-3 sm:hidden" justify="start">
         <NavbarBrand>
           <Image src={Logo} width={50} />
-          <p className="hidden lg:flex font-bold text-inherit ">
+          <p className="hidden font-bold text-inherit lg:flex ">
             Shopper&#39;s Choice
           </p>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-10" justify="center">
+      <NavbarContent className="hidden gap-10 sm:flex" justify="center">
         <NavbarBrand as={NavLink} to={"."}>
           <Image className=" " src={Logo} width={50} />
           <p className="font-bold text-inherit">Shopper&#39;s Choice</p>
@@ -70,7 +70,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
             href="#"
             variant="solid"
             color="primary"
-            className="hidden sm:flex px-7"
+            className="hidden px-7 sm:flex"
           >
             <MdGridView className="text-2xl" />
             Ver Catálogo
@@ -78,7 +78,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="hidden md:flex ml-5" justify="start">
+      <NavbarContent className="ml-5 hidden md:flex" justify="start">
         <SearchBar />
       </NavbarContent>
 
@@ -107,25 +107,25 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
           />
         </NavbarMenuItem>
         <NavbarMenuItem>
-          <Link className="flex gap-2 items-center  mt-5 mb-4 text-2xl">
+          <Link className="mb-4 mt-5 flex  items-center gap-2 text-2xl">
             <MdAccountCircle className="text-4xl" /> Mi Cuenta
           </Link>
         </NavbarMenuItem>
         <NavbarMenuItem>
           <NavLink
             to={"/products"}
-            className="flex gap-2 items-center  mt-5 mb-4 text-2xl"
+            className="mb-4 mt-5 flex  items-center gap-2 text-2xl"
           >
             <MdGridView className="text-4xl" /> Catálogo de Productos
           </NavLink>
         </NavbarMenuItem>
         <NavbarMenuItem>
-          <Link className="flex gap-2 items-center  mt-5 mb-4 text-2xl">
+          <Link className="mb-4 mt-5 flex  items-center gap-2 text-2xl">
             <MdFavorite className="text-4xl" /> Lista de Favoritos
           </Link>
         </NavbarMenuItem>
         <NavbarMenuItem>
-          <Link className="flex gap-2 items-center  mt-5 mb-4 text-2xl">
+          <Link className="mb-4 mt-5 flex  items-center gap-2 text-2xl">
             <Badge color="danger" content={11} size="sm" shape="circle">
               <MdShoppingCart className="text-4xl" />{" "}
             </Badge>{" "}
@@ -133,7 +133,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
           </Link>
         </NavbarMenuItem>
         <NavbarMenuItem>
-          <Link className="flex gap-2 items-center  mt-5 mb-4 text-2xl">
+          <Link className="mb-4 mt-5 flex  items-center gap-2 text-2xl">
             <MdHelp className="text-4xl" /> Ayuda / Contacto
           </Link>
         </NavbarMenuItem>
