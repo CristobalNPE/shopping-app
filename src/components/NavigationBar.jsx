@@ -50,7 +50,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
       </NavbarContent>
 
       <NavbarContent className="pr-3 sm:hidden" justify="start">
-        <NavbarBrand as={NavLink} to={"."}>
+        <NavbarBrand onClick={()=> setIsMenuOpen(false)} as={NavLink} to={"."}>
           <Image src={Logo} width={50} />
           <p className="hidden font-bold text-inherit lg:flex ">
             Shopper&#39;s Choice
