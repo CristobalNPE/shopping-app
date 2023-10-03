@@ -1,23 +1,36 @@
 import { useState, createContext } from "react";
 
 export const FavoritesContext = createContext({
-  favoriteProducts: [],
+  favorites: [],
   toggleFavorite: () => {},
   isFavorite: () => {},
 });
 
 export function FavoritesProvider({ children }) {
-  const [favoriteProducts, setFavoriteProducts] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
-  const toggleFavorite = (productId) => {};
+  const toggleFavorite = (productId) => {
+    let updatedFavorites = favorites.map((favorite) => {
+      if (favorite === productId) {
+        return null;
+      }
+      return favorite;
+    });
 
-  const isFavorite = (productId) => {};
+    updatedFavorites = updatedFavorites.filter((f) => f === null);
+
+    setFavorites(updatedFavorites);
+  };
+
+  const isFavorite = (productId) => {
+    return favorites.includes(productId);
+  };
 
   return (
     <FavoritesContext.Provider>
       value=
       {{
-        favoriteProducts,
+        favorites,
         toggleFavorite,
         isFavorite,
       }}
