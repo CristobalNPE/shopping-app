@@ -78,9 +78,10 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="ml-5 hidden md:flex" justify="start">
+      {/* <NavbarContent className="ml-5 hidden md:flex" justify="start">
         <SearchBar />
-      </NavbarContent>
+      </NavbarContent> */}
+      {/* 👆👆👆 Commented out until I have access to a better API where I can query for products */}
 
       <NavbarContent justify="center">
         <NightModeButtonSwitch
