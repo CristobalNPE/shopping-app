@@ -13,13 +13,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState({});
 
   const { addToCart, cartItems } = useShoppingCart();
-  const { favorites, toggleFavorite, isFavorite } = useFavorites();
-
-
-
-  useEffect(() => {
-    console.log(favorites);
-  }, [favorites]);
+  const { toggleFavorite, isFavorite } = useFavorites();
 
   useEffect(() => {
     const fetchProduct = async () => {

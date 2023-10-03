@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import useShoppingCart from "../hooks/useShoppingCart";
 import { roundNumber } from "../utils/utils";
 import ProductHorizontalCard from "./ProductHorizontalCard";
+import RedirectCard from "./RedirectCard";
 
 const CartPopover = ({ setIsOpen }) => {
   const { cartItems, getTotalItemsInCart } = useShoppingCart();
@@ -18,20 +19,11 @@ const CartPopover = ({ setIsOpen }) => {
   return (
     <aside className="hidden h-[calc(100vh-5rem)] w-[clamp(35rem,25vw,40rem)] flex-col p-3 sm:flex">
       {cartItems.length === 0 ? (
-        <div className="flex h-full flex-col items-center justify-center">
-          <h1 className="text-2xl font-normal">Tu carro está vacío</h1>
-          <h2>Busca productos en nuestro catálogo</h2>
-          <Button
-            className="mt-12"
-            color="success"
-            variant="shadow"
-            as={NavLink}
-            to={"products"}
-            onClick={() => setIsOpen(false)}
-          >
-            Ver Catálogo
-          </Button>
-        </div>
+        <RedirectCard
+          title={`Tu carro está vacío`}
+          subtitle={`Busca productos en nuestro catálogo`}
+          toLink={`products`}
+        />
       ) : (
         <h1 className="text-2xl font-light">
           Tienes <span className="font-semibold">{getTotalItemsInCart()}</span>{" "}

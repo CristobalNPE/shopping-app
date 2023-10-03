@@ -1,12 +1,12 @@
 import { Button, ButtonGroup, Input } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { BiSolidCoupon } from "react-icons/bi";
-import { NavLink } from "react-router-dom";
 import Page from "../components/Page";
 import PageTitle from "../components/PageTitle";
 import ProductHorizontalCard from "../components/ProductHorizontalCard";
-import { roundNumber } from "../utils/utils";
+import RedirectCard from "../components/RedirectCard";
 import useShoppingCart from "../hooks/useShoppingCart";
+import { roundNumber } from "../utils/utils";
 const CartPage = () => {
   const { getTotalItemsInCart, emptyCart, applyDiscount, cartItems } =
     useShoppingCart();
@@ -41,20 +41,11 @@ const CartPage = () => {
   return (
     <Page>
       {cartItems.length === 0 ? (
-        <div className="flex h-full flex-col items-center justify-center">
-          <h1 className="text-2xl font-normal">Tu carro está vacío</h1>
-          <h2>Busca productos en nuestro catálogo</h2>
-          <Button
-            className="mt-12"
-            color="success"
-            variant="shadow"
-            as={NavLink}
-            to={"/products"}
-          >
-            {/* TODO: FIX THIS ABSOLUTE LINK 🥵🥵🥵🥵🥵🥵 */}
-            Ver Catálogo
-          </Button>
-        </div>
+        <RedirectCard
+          title={`Tu carro está vacío`}
+          subtitle={`Busca productos en nuestro catálogo`}
+          toLink={`products`}
+        />
       ) : (
         <article className="flex flex-col gap-12 sm:flex-row">
           <section className="grow">
