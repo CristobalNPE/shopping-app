@@ -23,6 +23,7 @@ const CartPopover = ({ setIsOpen }) => {
           title={`Tu carro está vacío`}
           subtitle={`Busca productos en nuestro catálogo`}
           toLink={`products`}
+          setIsOpen={setIsOpen}
         />
       ) : (
         <h1 className="text-2xl font-light">
