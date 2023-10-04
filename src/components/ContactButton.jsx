@@ -1,23 +1,9 @@
-import { Button, NavbarItem, Tooltip } from "@nextui-org/react";
-
 import { MdHelp } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import NavButton from "./NavButton";
 
 const ContactButton = () => {
   return (
-    <NavbarItem className="hidden sm:flex">
-      <Tooltip delay={800} closeDelay={50} color="primary" content={"Ayuda / Contacto"}>
-        <Button
-          color="primary"
-          variant="light"
-          isIconOnly
-          as={NavLink}
-          to={"contact"}
-        >
-          <MdHelp className="text-2xl" />
-        </Button>
-      </Tooltip>
-    </NavbarItem>
+    <NavButton name={"Ayuda / Contacto"} icon={<MdHelp />} toLink={"contact"} />
   );
 };
 

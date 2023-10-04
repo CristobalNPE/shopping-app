@@ -1,34 +1,20 @@
-import {
-  Button,
-  NavbarItem,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Tooltip
-} from "@nextui-org/react";
-
-import {
-  MdAccountCircle
-} from "react-icons/md";
+import { useState } from "react";
+import { MdAccountCircle } from "react-icons/md";
 import AccountPopover from "./AccountPopover";
+import NavButton from "./NavButton";
 
-
-const AccountButton = () => {
+const AccountButton = ({nightMode}) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <Tooltip delay={800} closeDelay={50} color="primary" content={"Mi Cuenta"}>
-      <NavbarItem className="hidden sm:flex">
-        <Popover backdrop="blur" placement="bottom">
-          <PopoverTrigger>
-            <Button color="primary" variant="light" isIconOnly>
-              <MdAccountCircle className="text-2xl" />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <AccountPopover />
-          </PopoverContent>
-        </Popover>
-      </NavbarItem>
-    </Tooltip>
+    <NavButton
+      name={"Mi Cuenta"}
+      icon={<MdAccountCircle />}
+      hasPopover
+      nightMode={nightMode}
+      popoverSetIsOpen={setIsOpen}
+      popoverIsOpen={isOpen}
+      popoverContent={<AccountPopover setIsOpen={setIsOpen} />}
+    />
   );
 };
 

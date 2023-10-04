@@ -89,7 +89,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
           switchNightMode={switchNightMode}
         />
         <ContactButton />
-        <AccountButton />
+        <AccountButton nightMode={nightMode} />
         <FavoritesButton />
         <CartButton nightMode={nightMode} />
       </NavbarContent>
