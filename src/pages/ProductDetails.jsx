@@ -1,7 +1,7 @@
-import { Button, Chip, Image } from "@nextui-org/react";
+import { Button, Chip, Image, Link } from "@nextui-org/react";
 import { useEffect, useState } from "react";
-import { MdFavorite, MdShoppingCart } from "react-icons/md";
-import { useParams } from "react-router-dom";
+import { MdFavorite, MdShoppingCart, MdArrowCircleLeft } from "react-icons/md";
+import { NavLink, useParams } from "react-router-dom";
 import Page from "../components/Page";
 import QuantityControl from "../components/QuantityControl";
 import useShoppingCart from "../hooks/useShoppingCart";
@@ -35,6 +35,17 @@ const ProductDetails = () => {
 
   return (
     <Page>
+      <Link
+        as={NavLink}
+        to={".."}
+        relative="path"
+        className="flex gap-3"
+        color="foreground"
+      >
+        <MdArrowCircleLeft className="text-2xl" /> Volver al catálogo de
+        productos
+      </Link>
+
       <div className="flex flex-col items-center gap-10 rounded-lg bg-background p-12 text-foreground sm:flex-row">
         <Image
           className="min-w-[10rem] max-w-[15rem] lg:max-w-[20rem]"
