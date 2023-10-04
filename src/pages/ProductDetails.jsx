@@ -36,7 +36,10 @@ const ProductDetails = () => {
   return (
     <Page>
       <div className="flex flex-col items-center gap-10 rounded-lg bg-background p-12 text-foreground sm:flex-row">
-        <Image className="min-w-[10rem] max-w-[20rem]" src={product.image} />
+        <Image
+          className="min-w-[10rem] max-w-[15rem] lg:max-w-[20rem]"
+          src={product.image}
+        />
 
         <div className="flex flex-col gap-12">
           <Chip color="secondary">{product.category}</Chip>
@@ -44,7 +47,7 @@ const ProductDetails = () => {
           <h2 className="text-4xl font-bold">$ {product.price}</h2>
           <p>{product.description}</p>
 
-          <div className="flex gap-10">
+          <div className="flex flex-col gap-10 md:flex-row">
             {productInCart !== undefined ? (
               <QuantityControl
                 id={product.id}
