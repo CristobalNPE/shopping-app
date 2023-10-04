@@ -3,7 +3,7 @@ import { MdAccountCircle } from "react-icons/md";
 import AccountPopover from "./AccountPopover";
 import NavButton from "./NavButton";
 
-const AccountButton = ({nightMode}) => {
+const AccountButton = ({ nightMode }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <NavButton
