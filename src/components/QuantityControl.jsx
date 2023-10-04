@@ -16,7 +16,7 @@ const QuantityControl = ({ amount, size, id }) => {
         >
           <MdRemove />
         </Button>
-        <span className="text-md w w-fit px-5 py-2 text-center">{`${amount} ${
+        <span className="text-md w  w-fit px-5 py-2 text-center whitespace-nowrap">{`${amount} ${
           amount > 1 ? "unidades" : "unidad"
         }`}</span>
         <Button
