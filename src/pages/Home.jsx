@@ -15,7 +15,7 @@ const Home = () => {
           </h1>
 
           <h3 className="text-md  line mt-16 text-center font-light leading-8 sm:mt-5  sm:text-left sm:text-lg">
-            Empieza a{" "}
+            Empieza a{" "}<br className="sm:hidden"/>
             <Button
               color="success"
               variant="flat"
@@ -25,7 +25,7 @@ const Home = () => {
             >
               explorar nuestros productos
             </Button>{" "}
-            y descubre la verdadera comodidad.
+            <br className="sm:hidden"/>y  descubre la verdadera comodidad.
           </h3>
         </div>
       </Page>
