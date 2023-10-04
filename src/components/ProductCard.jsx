@@ -24,7 +24,12 @@ const ProductCard = ({ id, title, price, category, image, rating }) => {
       </CardHeader>
       <CardBody className="max-h-[15rem] p-0">
         <div className="mx-auto flex h-[15rem]  max-w-xs items-center justify-center overflow-clip ">
-          <Image alt={`Image of product ${title}`} src={image} width={150} />
+          <Image
+            alt={`Image of product ${title}`}
+            src={image}
+            width={150}
+            className="aspect-square object-contain"
+          />
         </div>
       </CardBody>
       <CardFooter className="flex   h-1/2">
