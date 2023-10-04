@@ -5,7 +5,7 @@ import CartPopover from "./CartPopover";
 import NavButton from "./NavButton";
 import { Badge } from "@nextui-org/react";
 
-const CartButton = ({nightMode}) => {
+const CartButton = ({ nightMode }) => {
   const { getTotalItemsInCart } = useShoppingCart();
   const [isOpen, setIsOpen] = useState(false);
 
