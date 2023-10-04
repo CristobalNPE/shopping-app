@@ -1,7 +1,6 @@
 import {
   Badge,
   Button,
-  Image,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -12,7 +11,6 @@ import {
   Switch,
 } from "@nextui-org/react";
 import { useState } from "react";
-import Logo from "../assets/Logo.svg";
 
 import {
   MdAccountCircle,
@@ -24,12 +22,13 @@ import {
   MdSunny,
 } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import ShcLogo from "../assets/ShcLogo";
+import useShoppingCart from "../hooks/useShoppingCart";
 import AccountButton from "./AccountButton";
 import CartButton from "./CartButton";
 import ContactButton from "./ContactButton";
 import FavoritesButton from "./FavoritesButton";
 import NightModeButtonSwitch from "./NightModeButtonSwitch";
-import useShoppingCart from "../hooks/useShoppingCart";
 
 export default function NavigationBar({ switchNightMode, nightMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,17 +49,20 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
       </NavbarContent>
 
       <NavbarContent className="pr-3 sm:hidden" justify="start">
-        <NavbarBrand onClick={()=> setIsMenuOpen(false)} as={NavLink} to={"."}>
-          <Image src={Logo} width={50} />
+        <NavbarBrand onClick={() => setIsMenuOpen(false)} as={NavLink} to={"."}>
+          <ShcLogo size={50} />
           <p className="hidden font-bold text-inherit lg:flex ">
             Shopper&#39;s Choice
           </p>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden gap-10 sm:flex" justify="center">
+      <NavbarContent
+        className="hidden gap-5 sm:flex md:gap-10"
+        justify="center"
+      >
         <NavbarBrand as={NavLink} to={"."}>
-          <Image className=" " src={Logo} width={50} />
+          <ShcLogo size={50} />
           <p className="font-bold text-inherit">Shopper&#39;s Choice</p>
         </NavbarBrand>
         <NavbarItem className="hidden sm:flex">

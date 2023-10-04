@@ -7,12 +7,14 @@ const Home = () => {
     <>
       <Page>
         <div className="mt-unit-4xl sm:mt-unit-5xl">
-          <h2 className="mb-4 text-3xl font-thin sm:text-5xl  sm:text-left text-center">Bienvenido a</h2>
-          <h1 className="text-5xl font-semibold sm:text-7xl md:text-8xl  sm:text-left text-center">
+          <h2 className="mb-4 text-center text-3xl font-thin  sm:text-left sm:text-5xl">
+            Bienvenido a
+          </h2>
+          <h1 className="text-center text-5xl font-semibold sm:text-left  sm:text-7xl md:text-8xl">
             Shopper&#39;s Choice
           </h1>
 
-          <h3 className="text-md  line mt-16 font-light leading-8 sm:mt-5 sm:text-lg  sm:text-left text-center">
+          <h3 className="text-md  line mt-16 text-center font-light leading-8 sm:mt-5  sm:text-left sm:text-lg">
             Empieza a{" "}
             <Button
               color="success"
