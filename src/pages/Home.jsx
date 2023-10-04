@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <Page>
+      <Page animated>
         <div className="mt-unit-4xl sm:mt-unit-5xl">
           <h2 className="mb-4 text-center text-3xl font-thin  sm:text-left sm:text-5xl">
             Bienvenido a
