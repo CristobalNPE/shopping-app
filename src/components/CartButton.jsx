@@ -15,7 +15,9 @@ const CartButton = ({ nightMode }) => {
       content={getTotalItemsInCart()}
       shape="circle"
       size="md"
-      className={`${getTotalItemsInCart() === 0 && "hidden"} hidden sm:flex`}
+      className={`${
+        getTotalItemsInCart() === 0 ? "hidden" : "hidden sm:flex"
+      } `}
     >
       <NavButton
         name={"Ver Carrito"}
