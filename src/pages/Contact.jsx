@@ -11,43 +11,43 @@ const Contact = () => {
 
   return (
     <Page>
-      <PageTitle>¿Con qué podemos ayudarte?</PageTitle>
-      <main className="flex flex-col md:flex-row gap-10">
+      <PageTitle>What can we help you with?</PageTitle>
+      <main className="flex flex-col gap-10 md:flex-row">
         <form
-          className="md:w-8/12 xl:w-1/2 mt-10 flex flex-col gap-5"
+          className="mt-10 flex flex-col gap-5 md:w-8/12 xl:w-1/2"
           action=""
         >
-          <h2 className="text-md font-light mt-3">
-            Completa la solicitud de contacto. Responderemos a la brevedad.
+          <h2 className="text-md mt-3 font-light">
+            Please complete this form. We will answer you shortly.
           </h2>
-          <Input type="email" label="Correo Electrónico" />
-          <Select label="Motivo">
-            <SelectItem>Administrar y/o cancelar compra</SelectItem>
-            <SelectItem>Devoluciones y reembolsos</SelectItem>
-            <SelectItem>Pregunta sobre compra</SelectItem>
-            <SelectItem>Seguridad de mi cuenta</SelectItem>
-            <SelectItem>Otros</SelectItem>
+          <Input type="email" label="Email" />
+          <Select label="Contact reason">
+            <SelectItem>Manage and/or cancel purchase</SelectItem>
+            <SelectItem>Returns and refunds</SelectItem>
+            <SelectItem>About my purchase</SelectItem>
+            <SelectItem>Account security</SelectItem>
+            <SelectItem>Other</SelectItem>
           </Select>
-          <Textarea minRows={8} label="Detalles" />
+          <Textarea minRows={8} label="Details" />
           <Button color="secondary" variant="ghost">
-            Enviar solicitud
+            Submit request
           </Button>
         </form>
         <section>
-          <h2 className="text-md font-light mt-12">
-            Si prefieres, nos puedes contactar a:
+          <h2 className="text-md mt-12 font-light">
+            You can also contact us at:
           </h2>
 
           <div className=" mt-5  flex flex-col gap-6">
-            <h1 className="flex gap-5 items-center text-2xl font-normal">
+            <h1 className="flex items-center gap-5 text-2xl font-normal">
               <MdOutlineMailOutline className="text-4xl " />
-              contacto@shc.com
+              contact@shc.com
             </h1>
-            <h1 className="flex gap-5 items-center text-2xl font-normal">
+            <h1 className="flex items-center gap-5 text-2xl font-normal">
               <MdWhatsapp className="text-4xl" />
               +569 9999 99 99
             </h1>
-            <h1 className="flex gap-5 items-center text-2xl font-normal">
+            <h1 className="flex items-center gap-5 text-2xl font-normal">
               <MdOutlinePhone className="text-4xl" />
               3333 33 33
             </h1>

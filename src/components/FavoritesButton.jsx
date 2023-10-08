@@ -3,7 +3,7 @@ import NavButton from "./NavButton";
 
 const FavoritesButton = () => {
   return (
-    <NavButton name={"Favoritos"} icon={<MdFavorite />} toLink={"favorites"} />
+    <NavButton name={"Favorites"} icon={<MdFavorite />} toLink={"favorites"} />
   );
 };
 

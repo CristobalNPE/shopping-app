@@ -32,7 +32,7 @@ const Products = () => {
 
   return (
     <Page>
-      <PageTitle>Nuestros Productos</PageTitle>
+      <PageTitle>Our Products</PageTitle>
       <article className="my-5 flex h-56 flex-col-reverse items-center justify-center overflow-hidden rounded-lg  bg-gradient-to-r from-primary to-secondary px-5 sm:flex-row sm:justify-between">
         <div className="p-5 text-sm">
           <h4 className="flex items-center gap-1 ">

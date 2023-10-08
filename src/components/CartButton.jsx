@@ -20,7 +20,7 @@ const CartButton = ({ nightMode }) => {
       } `}
     >
       <NavButton
-        name={"Ver Carrito"}
+        name={"Shopping Cart"}
         icon={<MdShoppingCart />}
         hasPopover
         nightMode={nightMode}

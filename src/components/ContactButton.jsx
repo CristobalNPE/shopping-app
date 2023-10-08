@@ -3,7 +3,7 @@ import NavButton from "./NavButton";
 
 const ContactButton = () => {
   return (
-    <NavButton name={"Ayuda / Contacto"} icon={<MdHelp />} toLink={"contact"} />
+    <NavButton name={"Help / Contact"} icon={<MdHelp />} toLink={"contact"} />
   );
 };
 

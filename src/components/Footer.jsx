@@ -13,7 +13,7 @@ const Footer = () => {
         </div>
         <p className="text-sm">
           &copy; 2023 Cristobal Pulgar Estay.
-          <br /> Todos los derechos reservados.
+          <br /> All rights reserved.
         </p>
       </div>
 

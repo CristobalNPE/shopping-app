@@ -7,7 +7,7 @@ const AccountButton = ({ nightMode }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <NavButton
-      name={"Mi Cuenta"}
+      name={"My Account"}
       icon={<MdAccountCircle />}
       hasPopover
       nightMode={nightMode}

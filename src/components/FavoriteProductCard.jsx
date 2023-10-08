@@ -27,7 +27,7 @@ const FavoriteProductCard = ({ product }) => {
               variant="ghost"
               onClick={() => toggleFavorite(product.id)}
             >
-              <MdFavorite className="text-xl" /> Quitar de favoritos
+              <MdFavorite className="text-xl" /> Remove from favorites
             </Button>
 
             <Button
@@ -36,7 +36,7 @@ const FavoriteProductCard = ({ product }) => {
               as={Link}
               to={`/products/${product.id}`}
             >
-              <MdDataset /> Ver Producto
+              <MdDataset /> Product details
             </Button>
             {/* Button + Quantity control could be its own component here and in product details */}
             {productInCart !== undefined ? (
@@ -47,7 +47,7 @@ const FavoriteProductCard = ({ product }) => {
               />
             ) : (
               <Button onClick={() => addToCart(product)} color="primary">
-                <MdShoppingCart className="text-xl" /> Añadir al carrito
+                <MdShoppingCart className="text-xl" /> Add to cart
               </Button>
             )}
           </div>

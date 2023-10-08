@@ -20,15 +20,15 @@ const CartPopover = ({ setIsOpen }) => {
     <aside className="hidden h-[calc(100vh-5rem)] w-[clamp(35rem,25vw,40rem)] flex-col p-3 sm:flex">
       {cartItems.length === 0 ? (
         <RedirectCard
-          title={`Tu carro está vacío`}
-          subtitle={`Busca productos en nuestro catálogo`}
+          title={`Your shopping cart is empty`}
+          subtitle={`Check out our products if you need inspiration`}
           toLink={`products`}
           setIsOpen={setIsOpen}
         />
       ) : (
         <h1 className="text-2xl font-light">
-          Tienes <span className="font-semibold">{getTotalItemsInCart()}</span>{" "}
-          {getTotalItemsInCart() > 1 ? "productos" : "producto"}
+          You have <span className="font-semibold">{getTotalItemsInCart()}</span>{" "}
+          {getTotalItemsInCart() > 1 ? "products" : "product"}
         </h1>
       )}
 
@@ -48,7 +48,7 @@ const CartPopover = ({ setIsOpen }) => {
           as={NavLink}
           to={"cart"}
         >
-          Ir al Detalle
+          Go to checkout
         </Button>
       </div>
     </aside>

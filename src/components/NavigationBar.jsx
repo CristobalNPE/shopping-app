@@ -44,7 +44,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
     >
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
       </NavbarContent>
 
@@ -75,7 +75,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
             className="hidden px-7 sm:flex"
           >
             <MdGridView className="text-2xl" />
-            Ver Catálogo
+            Our Products
           </Button>
         </NavbarItem>
       </NavbarContent>
@@ -112,7 +112,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
         </NavbarMenuItem>
         <NavbarMenuItem onClick={() => setIsMenuOpen(false)}>
           <NavLink className="mb-4 mt-5 flex  items-center gap-2 text-2xl">
-            <MdAccountCircle className="text-4xl" /> Mi Cuenta
+            <MdAccountCircle className="text-4xl" /> My account
           </NavLink>
         </NavbarMenuItem>
         <NavbarMenuItem onClick={() => setIsMenuOpen(false)}>
@@ -120,7 +120,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
             to={"products"}
             className="mb-4 mt-5 flex  items-center gap-2 text-2xl"
           >
-            <MdGridView className="text-4xl" /> Catálogo de Productos
+            <MdGridView className="text-4xl" /> Our products
           </NavLink>
         </NavbarMenuItem>
         <NavbarMenuItem onClick={() => setIsMenuOpen(false)}>
@@ -128,7 +128,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
             to={"favorites"}
             className="mb-4 mt-5 flex  items-center gap-2 text-2xl"
           >
-            <MdFavorite className="text-4xl" /> Lista de Favoritos
+            <MdFavorite className="text-4xl" /> Favorites list
           </NavLink>
         </NavbarMenuItem>
         <NavbarMenuItem onClick={() => setIsMenuOpen(false)}>
@@ -145,7 +145,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
             >
               <MdShoppingCart className="text-4xl" />{" "}
             </Badge>{" "}
-            Ver Carrito
+            Shopping Cart
           </NavLink>
         </NavbarMenuItem>
         <NavbarMenuItem onClick={() => setIsMenuOpen(false)}>
@@ -153,7 +153,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
             to={"contact"}
             className="mb-4 mt-5 flex  items-center gap-2 text-2xl"
           >
-            <MdHelp className="text-4xl" /> Ayuda / Contacto
+            <MdHelp className="text-4xl" /> Help / Contact
           </NavLink>
         </NavbarMenuItem>
       </NavbarMenu>

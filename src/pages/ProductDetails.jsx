@@ -42,8 +42,7 @@ const ProductDetails = () => {
         className="flex gap-3"
         color="foreground"
       >
-        <MdArrowCircleLeft className="text-2xl" /> Volver al catálogo de
-        productos
+        <MdArrowCircleLeft className="text-2xl" /> Go back to all products
       </Link>
 
       <div className="flex flex-col items-center gap-10 rounded-lg bg-background p-12 text-foreground sm:flex-row">
@@ -67,7 +66,7 @@ const ProductDetails = () => {
               />
             ) : (
               <Button onClick={() => addToCart(product)} color="primary">
-                <MdShoppingCart className="text-xl" /> Añadir al carrito
+                <MdShoppingCart className="text-xl" /> Add to cart
               </Button>
             )}
             {!isFavorite(product.id) ? (
@@ -76,7 +75,7 @@ const ProductDetails = () => {
                 variant="flat"
                 onClick={() => toggleFavorite(product.id)}
               >
-                <MdFavorite className="text-xl" /> Añadir a favoritos
+                <MdFavorite className="text-xl" /> Add to favorites
               </Button>
             ) : (
               <Button
@@ -84,7 +83,7 @@ const ProductDetails = () => {
                 variant="ghost"
                 onClick={() => toggleFavorite(product.id)}
               >
-                <MdFavorite className="text-xl" /> Quitar de favoritos
+                <MdFavorite className="text-xl" /> Remove from favorites
               </Button>
             )}
           </div>

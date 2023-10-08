@@ -50,7 +50,7 @@ const Favorites = () => {
         />
       ) : (
         <>
-          <PageTitle>Mis favoritos</PageTitle>
+          <PageTitle>Favorite products</PageTitle>
           <section className="mt-10 flex flex-col gap-5">
             {favoriteProductsElements}
           </section>

@@ -42,14 +42,14 @@ const CartPage = () => {
     <Page>
       {cartItems.length === 0 ? (
         <RedirectCard
-          title={`Tu carro está vacío`}
-          subtitle={`Busca productos en nuestro catálogo`}
+          title={`Your shopping cart is empty`}
+          subtitle={`Check out our products if you need inspiration`}
           toLink={`/products`}
         />
       ) : (
         <article className="flex flex-col gap-12 sm:flex-row">
           <section className="grow">
-            <PageTitle>Mi Carrito</PageTitle>
+            <PageTitle>My shopping cart</PageTitle>
             <h2>
               {getTotalItemsInCart()}{" "}
               {`${getTotalItemsInCart() !== 1 ? "productos" : "producto"}`}

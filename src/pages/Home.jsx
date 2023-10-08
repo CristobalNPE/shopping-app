@@ -13,7 +13,7 @@ const Home = () => {
             transition={{ duration: 1 }}
             className="mb-4 text-center text-3xl font-thin  sm:text-left sm:text-5xl"
           >
-            Bienvenido a
+            Welcome to
           </motion.h2>
           <h1 className="text-center text-5xl font-semibold sm:text-left  sm:text-7xl md:text-8xl">
             Shopper&#39;s Choice
@@ -25,7 +25,7 @@ const Home = () => {
             transition={{ duration: 1 }}
             className="text-md  line mt-16 text-center font-light leading-8 sm:mt-5  sm:text-left sm:text-lg"
           >
-            Empieza a <br className="sm:hidden" />
+            Start <br className="sm:hidden" />
             <Button
               color="success"
               variant="flat"
@@ -33,9 +33,9 @@ const Home = () => {
               as={Link}
               to={"products"}
             >
-              explorar nuestros productos
+              exploring our products
             </Button>{" "}
-            <br className="sm:hidden" />y descubre la verdadera comodidad.
+            <br className="sm:hidden" />and discover true shopping comfort.
           </motion.h3>
         </div>
       </Page>

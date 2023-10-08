@@ -19,7 +19,7 @@ const RedirectCard = ({ title, subtitle, toLink, setIsOpen }) => {
         to={toLink}
         onClick={() => setIsOpen(false)}
       >
-        Ver Catálogo
+        Our Products
       </Button>
     </div>
   );
