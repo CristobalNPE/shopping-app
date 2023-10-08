@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <Page animated>
-        <div className="mt-unit-4xl sm:mt-unit-5xl">
+        <div className="mt-unit-4xl sm:mt-[25vh]">
           <motion.h2
             initial={{ opacity: 0, y: -200 }}
             animate={{ opacity: 1, y: 0 }}
@@ -35,7 +35,8 @@ const Home = () => {
             >
               exploring our products
             </Button>{" "}
-            <br className="sm:hidden" />and discover true shopping comfort.
+            <br className="sm:hidden" />
+            and discover true shopping comfort.
           </motion.h3>
         </div>
       </Page>
