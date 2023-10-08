@@ -26,7 +26,7 @@ const ProductHorizontalCard = ({ item }) => {
             variant="light"
             onClick={() => removeFromCart(id)}
           >
-            Eliminar
+            Remove
           </Button>
         </div>
       </article>

@@ -52,12 +52,12 @@ const CartPage = () => {
             <PageTitle>My shopping cart</PageTitle>
             <h2>
               {getTotalItemsInCart()}{" "}
-              {`${getTotalItemsInCart() !== 1 ? "productos" : "producto"}`}
+              {`${getTotalItemsInCart() !== 1 ? "products" : "product"}`}
             </h2>
             <div className="">{productHorizontalCardElements}</div>
           </section>
           <aside className="w-full rounded-lg border-1 p-5 shadow-md sm:w-80 ">
-            <h1 className="mb-2 text-sm">Ingrese un cupón de descuento</h1>
+            <h1 className="mb-2 text-sm">Enter a valid discount coupon</h1>
             <ButtonGroup>
               <Input
                 placeholder="Ej: SHCVEINTE"
@@ -67,19 +67,19 @@ const CartPage = () => {
                 onChange={handleChange}
               />
               <Button color="secondary" onClick={applyDiscountCode}>
-                Aplicar
+                Apply
               </Button>
             </ButtonGroup>
             <hr className="my-5 opacity-60" />
             <div className="flex flex-col gap-2">
-              <h1 className="text-2xl font-semibold">Resumen del pedido:</h1>
+              <h1 className="text-2xl font-semibold">Order Summary:</h1>
               <hr className="my-5 opacity-60" />
               <div className="flex items-center justify-between">
                 <h2 className="text-xl">Subtotal: </h2>
                 <h2 className="text-xl font-semibold">$ {subtotal} </h2>
               </div>
               <div className="flex items-center justify-between">
-                <h2 className="text-xl">Descuentos: </h2>
+                <h2 className="text-xl">Discounts: </h2>
                 <h2 className="text-xl  font-semibold">- $ {discountTotal}</h2>
               </div>
               <hr className="my-5 opacity-60" />
@@ -89,9 +89,9 @@ const CartPage = () => {
               </div>
 
               <div className="mt-5 flex flex-col justify-center gap-3">
-                <Button color="secondary">Continuar</Button>
+                <Button color="secondary">Continue</Button>
                 <Button onClick={emptyCart} variant="light" color="danger">
-                  Vaciar carrito
+                  Empty cart
                 </Button>
               </div>
             </div>
