@@ -3,6 +3,9 @@ import Page from "../components/Page";
 import PageTitle from "../components/PageTitle";
 import ProductCard from "../components/ProductCard";
 
+import { MdDiscount } from "react-icons/md";
+import ProductsImage from "../assets/productsBannerM.png";
+
 const Products = () => {
   const [productsData, setProductsData] = useState([]);
 
@@ -30,8 +33,22 @@ const Products = () => {
   return (
     <Page>
       <PageTitle>Nuestros Productos</PageTitle>
-
-      <main className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-10 mt-10 justify-center">
+      <article className="my-5 flex h-56 flex-col-reverse items-center justify-center overflow-hidden rounded-lg  bg-gradient-to-r from-primary to-secondary px-5 sm:flex-row sm:justify-between">
+        <div className="p-5 text-sm">
+          <h4 className="flex items-center gap-1 ">
+            <MdDiscount /> Promo
+          </h4>
+          <h1 className="text-3xl font-semibold">
+            Get 20% dicount on all purchases
+          </h1>
+          <h3 className="">
+            Try our coupon at checkout:{" "}
+            <span className="font-bold">SHCVEINTE</span>
+          </h3>
+        </div>
+        <img src={ProductsImage} className="hidden h-72 sm:flex" />
+      </article>
+      <main className="mt-10 grid justify-center gap-10  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {productElements}
       </main>
     </Page>
