@@ -54,7 +54,7 @@ const CartPage = () => {
               {getTotalItemsInCart()}{" "}
               {`${getTotalItemsInCart() !== 1 ? "products" : "product"}`}
             </h2>
-            <div className="">{productHorizontalCardElements}</div>
+            <div className="mt-5">{productHorizontalCardElements}</div>
           </section>
           <aside className="w-full rounded-lg border-1 p-5 shadow-md sm:w-80 ">
             <h1 className="mb-2 text-sm">Enter a valid discount coupon</h1>
