@@ -50,7 +50,7 @@ const ProductDetails = () => {
         products
       </Link>
 
-      <div className="flex flex-col items-center gap-10 rounded-lg bg-background p-12 text-foreground sm:flex-row">
+      <div className="flex flex-col items-center gap-10 rounded-lg bg-background p-2 pt-12 sm:p-12 text-foreground sm:flex-row">
         <Image
           className="min-w-[10rem] max-w-[15rem] lg:max-w-[20rem]"
           src={product.image}
