@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Outlet, ScrollRestoration } from "react-router-dom";
-import Footer from "./components/Footer";
-import NavigationBar from "./components/NavigationBar";
+import Footer from "./components/Layout/Footer";
+import NavigationBar from "./components/Navbar/NavigationBar";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 import { FavoritesProvider } from "./context/FavoritesContext";
 

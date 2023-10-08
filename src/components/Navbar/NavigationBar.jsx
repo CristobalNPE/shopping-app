@@ -22,8 +22,8 @@ import {
   MdSunny,
 } from "react-icons/md";
 import { NavLink } from "react-router-dom";
-import ShcLogo from "../assets/ShcLogo";
-import useShoppingCart from "../hooks/useShoppingCart";
+import ShcLogo from "../../assets/ShcLogo";
+import useShoppingCart from "../../hooks/useShoppingCart";
 import AccountButton from "./AccountButton";
 import CartButton from "./CartButton";
 import ContactButton from "./ContactButton";

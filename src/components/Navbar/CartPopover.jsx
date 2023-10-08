@@ -1,9 +1,9 @@
 import { Button } from "@nextui-org/react";
 import { NavLink } from "react-router-dom";
-import useShoppingCart from "../hooks/useShoppingCart";
-import { roundNumber } from "../utils/utils";
-import ProductHorizontalCard from "../features/cart/components/ProductHorizontalCard";
-import RedirectCard from "./RedirectCard";
+import useShoppingCart from "../../hooks/useShoppingCart";
+import { roundNumber } from "../../utils/utils";
+import ProductHorizontalCard from "../../features/cart/components/ProductHorizontalCard";
+import RedirectCard from "../Elements/RedirectCard";
 
 const CartPopover = ({ setIsOpen }) => {
   const { cartItems, getTotalItemsInCart } = useShoppingCart();

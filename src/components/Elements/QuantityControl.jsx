@@ -1,6 +1,6 @@
 import { Button, ButtonGroup } from "@nextui-org/react";
 import { MdAdd, MdRemove } from "react-icons/md";
-import useShoppingCart from "../hooks/useShoppingCart";
+import useShoppingCart from "../../hooks/useShoppingCart";
 const QuantityControl = ({ amount, size, id }) => {
   const { increaseItemAmount, decreaseItemAmount } = useShoppingCart();
 

@@ -2,8 +2,8 @@ import { Button, Chip, Image, Link } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { MdFavorite, MdShoppingCart, MdArrowCircleLeft } from "react-icons/md";
 import { NavLink, useLocation, useParams } from "react-router-dom";
-import Page from "../../../components/Page";
-import QuantityControl from "../../../components/QuantityControl";
+import Page from "../../../components/Layout/Page";
+import QuantityControl from "../../../components/Elements/QuantityControl";
 import useShoppingCart from "../../../hooks/useShoppingCart";
 import useFavorites from "../../../hooks/useFavorites";
 

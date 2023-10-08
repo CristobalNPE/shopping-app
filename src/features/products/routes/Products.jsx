@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Page from "../../../components/Page";
-import PageTitle from "../../../components/PageTitle";
-import ProductCard from "../../../components/ProductCard";
+import Page from "../../../components/Layout/Page";
+import PageTitle from "../../../components/Elements/PageTitle";
+import ProductCard from "../components/ProductCard";
 
 import { Button } from "@nextui-org/react";
 import { MdDiscount, MdClose } from "react-icons/md";

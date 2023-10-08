@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import FavoriteProductCard from "../components/FavoriteProductCard";
-import Page from "../../../components/Page";
-import PageTitle from "../../../components/PageTitle";
-import RedirectCard from "../../../components/RedirectCard";
+import Page from "../../../components/Layout/Page";
+import PageTitle from "../../../components/Elements/PageTitle";
+import RedirectCard from "../../../components/Elements/RedirectCard";
 import useFavorites from "../../../hooks/useFavorites";
 
 const Favorites = () => {

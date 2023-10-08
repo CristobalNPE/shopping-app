@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MdShoppingCart } from "react-icons/md";
-import useShoppingCart from "../hooks/useShoppingCart";
+import useShoppingCart from "../../hooks/useShoppingCart";
 import CartPopover from "./CartPopover";
 import NavButton from "./NavButton";
 import { Badge } from "@nextui-org/react";
