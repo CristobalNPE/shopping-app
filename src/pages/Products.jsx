@@ -46,7 +46,7 @@ const Products = () => {
             <span className="font-bold">SHCVEINTE</span>
           </h3>
         </div>
-        <img src={ProductsImage} className="hidden h-72 sm:flex" />
+        <img src={ProductsImage} className="hidden h-72 md:flex" />
       </article>
       <main className="mt-10 grid justify-center gap-10  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {productElements}
