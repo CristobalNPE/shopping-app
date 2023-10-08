@@ -7,6 +7,7 @@ import Favorites from "../pages/Favorites";
 import Home from "../pages/Home";
 import ProductDetails from "../pages/ProductDetails";
 import Products from "../pages/Products";
+import NotFound from "../pages/NotFound";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -42,7 +43,7 @@ const Router = () => {
         },
         {
           path: "*",
-          element: <Home />,
+          element: <NotFound />,
         },
       ],
     },
