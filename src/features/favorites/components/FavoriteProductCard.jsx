@@ -1,8 +1,8 @@
 import { Card, CardBody, Image, Button } from "@nextui-org/react";
 import { MdFavorite, MdShoppingCart, MdDataset } from "react-icons/md";
-import useShoppingCart from "../hooks/useShoppingCart";
-import useFavorites from "../hooks/useFavorites";
-import QuantityControl from "./QuantityControl";
+import useShoppingCart from "../../../hooks/useShoppingCart";
+import useFavorites from "../../../hooks/useFavorites";
+import QuantityControl from "../../../components/QuantityControl";
 import { Link } from "react-router-dom";
 
 const FavoriteProductCard = ({ product }) => {

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import FavoriteProductCard from "../components/FavoriteProductCard";
-import Page from "../components/Page";
-import PageTitle from "../components/PageTitle";
-import RedirectCard from "../components/RedirectCard";
-import useFavorites from "../hooks/useFavorites";
+import Page from "../../../components/Page";
+import PageTitle from "../../../components/PageTitle";
+import RedirectCard from "../../../components/RedirectCard";
+import useFavorites from "../../../hooks/useFavorites";
 
 const Favorites = () => {
   const { favorites } = useFavorites();

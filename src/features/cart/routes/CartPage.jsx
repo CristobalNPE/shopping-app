@@ -1,12 +1,12 @@
 import { Button, ButtonGroup, Input } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { BiSolidCoupon } from "react-icons/bi";
-import Page from "../components/Page";
-import PageTitle from "../components/PageTitle";
+import Page from "../../../components/Page";
+import PageTitle from "../../../components/PageTitle";
 import ProductHorizontalCard from "../components/ProductHorizontalCard";
-import RedirectCard from "../components/RedirectCard";
-import useShoppingCart from "../hooks/useShoppingCart";
-import { roundNumber } from "../utils/utils";
+import RedirectCard from "../../../components/RedirectCard";
+import useShoppingCart from "../../../hooks/useShoppingCart";
+import { roundNumber } from "../../../utils/utils";
 const CartPage = () => {
   const { getTotalItemsInCart, emptyCart, applyDiscount, cartItems } =
     useShoppingCart();

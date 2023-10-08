@@ -1,5 +1,5 @@
 import { Button } from "@nextui-org/react";
-import Page from "../components/Page";
+import Page from "../../../components/Page";
 import { Link } from "react-router-dom";
 
 const ErrorPage = () => {

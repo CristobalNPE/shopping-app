@@ -1,6 +1,6 @@
 import { Input, Textarea, Select, SelectItem, Button } from "@nextui-org/react";
-import Page from "../components/Page";
-import PageTitle from "../components/PageTitle";
+import Page from "../../../components/Page";
+import PageTitle from "../../../components/PageTitle";
 import {
   MdWhatsapp,
   MdOutlineMailOutline,

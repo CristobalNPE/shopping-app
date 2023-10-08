@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import Page from "../components/Page";
-import PageTitle from "../components/PageTitle";
-import ProductCard from "../components/ProductCard";
+import Page from "../../../components/Page";
+import PageTitle from "../../../components/PageTitle";
+import ProductCard from "../../../components/ProductCard";
 
 import { Button } from "@nextui-org/react";
 import { MdDiscount, MdClose } from "react-icons/md";
 import { useSearchParams } from "react-router-dom";
-import ProductsImage from "../assets/productsBannerM.png";
+import ProductsImage from "../../../assets/productsBannerM.png";
 
 const Products = () => {
   const [productsData, setProductsData] = useState([]);

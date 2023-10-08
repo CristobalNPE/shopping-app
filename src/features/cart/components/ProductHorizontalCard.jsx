@@ -1,6 +1,6 @@
 import { Button, Image } from "@nextui-org/react";
-import useShoppingCart from "../hooks/useShoppingCart";
-import QuantityControl from "./QuantityControl";
+import useShoppingCart from "../../../hooks/useShoppingCart";
+import QuantityControl from "../../../components/QuantityControl";
 const ProductHorizontalCard = ({ item }) => {
   const { id, title, image, amount, total } = item;
 
