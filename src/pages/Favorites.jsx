@@ -44,8 +44,8 @@ const Favorites = () => {
     <Page>
       {favorites.length === 0 ? (
         <RedirectCard
-          title={`Aún no has agregado productos a tus favoritos`}
-          subtitle={`Busca productos en nuestro catálogo`}
+          title={`You have nothing in your favorites list yet`}
+          subtitle={`Check out our products if you need inspiration`}
           toLink={`/products`}
         />
       ) : (
