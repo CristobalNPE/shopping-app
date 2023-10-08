@@ -1,7 +1,7 @@
 import { Button, Chip, Image, Link } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { MdFavorite, MdShoppingCart, MdArrowCircleLeft } from "react-icons/md";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import Page from "../components/Page";
 import QuantityControl from "../components/QuantityControl";
 import useShoppingCart from "../hooks/useShoppingCart";
@@ -9,6 +9,10 @@ import useFavorites from "../hooks/useFavorites";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const location = useLocation();
+
+  const search = location.state?.search || "";
+  const categoryFilter = location.state?.categoryFilter || "all";
 
   const [product, setProduct] = useState({});
 
@@ -37,12 +41,13 @@ const ProductDetails = () => {
     <Page>
       <Link
         as={NavLink}
-        to={".."}
+        to={`..${search}`}
         relative="path"
         className="flex gap-3"
         color="foreground"
       >
-        <MdArrowCircleLeft className="text-2xl" /> Go back to all products
+        <MdArrowCircleLeft className="text-2xl" /> Go back to {categoryFilter}{" "}
+        products
       </Link>
 
       <div className="flex flex-col items-center gap-10 rounded-lg bg-background p-12 text-foreground sm:flex-row">

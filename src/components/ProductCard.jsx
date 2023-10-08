@@ -9,11 +9,21 @@ import {
 import { MdStar } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
-const ProductCard = ({ id, title, price, category, image, rating }) => {
+const ProductCard = ({
+  id,
+  title,
+  price,
+  category,
+  image,
+  rating,
+  search,
+  categoryFilter,
+}) => {
   return (
     <Card
       as={NavLink}
       to={`/products/${id}`}
+      state={{ search: search, categoryFilter: categoryFilter }}
       shadow="sm"
       className="max-w-[20rem] bg-background p-3 text-foreground drop-shadow-lg hover:shadow-inner"
     >
