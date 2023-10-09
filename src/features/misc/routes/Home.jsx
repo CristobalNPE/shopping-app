@@ -25,7 +25,7 @@ const Home = () => {
             transition={{ duration: 1 }}
             className="text-md  line mt-16 text-center font-light leading-8 sm:mt-5  sm:text-left sm:text-lg"
           >
-            Start <br className="sm:hidden" />
+            Embark on a journey to <br className="sm:hidden" />
             <Button
               color="success"
               variant="flat"
@@ -33,10 +33,10 @@ const Home = () => {
               as={Link}
               to={"products"}
             >
-              exploring our products
+              explore our products
             </Button>{" "}
             <br className="sm:hidden" />
-            and discover true shopping comfort.
+            and experience the ultimate shopping comfort.
           </motion.h3>
         </div>
       </Page>
