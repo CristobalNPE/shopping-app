@@ -11,8 +11,7 @@ const Favorites = () => {
   const { favorites } = useFavorites();
   const [favoriteProducts, setFavoritesProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  //this feels wrong, we are fetching again everytime a favorite is removed too
+  
   useEffect(() => {
     const loadFavorites = async () => {
       try {

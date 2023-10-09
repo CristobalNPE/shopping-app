@@ -1,7 +1,7 @@
 import { Button } from "@nextui-org/react";
+import { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { getCategories } from "../api/getCategories";
-import { useEffect, useState } from "react";
 
 const Categories = ({ categoryFilter, setSearchParams }) => {
   const [categories, setCategories] = useState([]);

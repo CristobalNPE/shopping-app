@@ -52,6 +52,7 @@ const Router = () => {
           element: <ProductDetails />,
           loader: productDetailsLoader,
         },
+
         {
           path: "*",
           element: <NotFound />,
