@@ -64,7 +64,7 @@ const ProductCard = ({
           <h1 className="font-semibold ">{title}</h1>
           <div className="flex flex-col gap-3">
             <span className="text-md flex items-center gap-1 ">
-              <MdStar className="text-2xl text-primary" />{" "}
+              <MdStar className="text-2xl text-warning" />{" "}
               <span className="mr-1 font-semibold">{rating.rate}</span> (
               {rating.count} reviews)
             </span>
