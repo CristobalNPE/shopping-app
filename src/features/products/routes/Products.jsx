@@ -13,7 +13,7 @@ export async function loader() {
   //we only await for categories to get resolved, since its a light request
   return defer({
     productsData: getProducts(),
-    categories: await getCategories(),
+    categoriesData: getCategories(),
   });
 }
 
@@ -54,19 +54,27 @@ const Products = () => {
           <span className="text-lg capitalize"> - {categoryFilter}</span>
         )}
       </PageTitle>
-      <Categories
-        categories={dataPromise.categories}
-        categoryFilter={categoryFilter}
-        setSearchParams={setSearchParams}
-      />
-      <ProductsBanner />
       <Suspense
         fallback={
-          <div className="mt-20 flex justify-center">
-            <Spinner size="lg" label="Loading products" />
+          <div className="flex h-48 w-full items-center justify-center">
+            <Spinner size="lg" color="primary" />
           </div>
         }
       >
+        <Await resolve={dataPromise.categoriesData}>
+          {(categories) => {
+            return (
+              <Categories
+                categories={categories}
+                categoryFilter={categoryFilter}
+                setSearchParams={setSearchParams}
+              />
+            );
+          }}
+        </Await>
+
+        <ProductsBanner />
+
         <Await resolve={dataPromise.productsData}>
           {renderProductElements}
         </Await>

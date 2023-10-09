@@ -1,20 +1,27 @@
-import { Button, Chip, Image, Link } from "@nextui-org/react";
+import { Button, Chip, Image, Link, Spinner } from "@nextui-org/react";
 import { MdArrowCircleLeft, MdFavorite, MdShoppingCart } from "react-icons/md";
-import { NavLink, useLoaderData, useLocation } from "react-router-dom";
+import {
+  Await,
+  NavLink,
+  defer,
+  useLoaderData,
+  useLocation,
+} from "react-router-dom";
 import QuantityControl from "../../../components/Elements/QuantityControl";
 import Page from "../../../components/Layout/Page";
 import useFavorites from "../../../hooks/useFavorites";
 import useShoppingCart from "../../../hooks/useShoppingCart";
 import { getProduct } from "../api/getProduct";
+import { Suspense } from "react";
 
 export async function loader({ params }) {
-  return getProduct(params.id);
+  return defer({ productData: getProduct(params.id) });
 }
 
 const ProductDetails = () => {
   const location = useLocation();
 
-  const product = useLoaderData();
+  const productPromise = useLoaderData();
 
   const search = location.state?.search || "";
   const categoryFilter = location.state?.categoryFilter || "all";
@@ -22,21 +29,10 @@ const ProductDetails = () => {
   const { addToCart, cartItems } = useShoppingCart();
   const { toggleFavorite, isFavorite } = useFavorites();
 
-  const productInCart = cartItems.find((item) => item.id === product.id);
+  function renderProductElement(product) {
+    const productInCart = cartItems.find((item) => item.id === product.id);
 
-  return (
-    <Page>
-      <Link
-        as={NavLink}
-        to={`..${search}`}
-        relative="path"
-        className="flex gap-3"
-        color="foreground"
-      >
-        <MdArrowCircleLeft className="text-2xl" /> Go back to {categoryFilter}{" "}
-        products
-      </Link>
-
+    return (
       <div className="flex flex-col items-center gap-10 rounded-lg bg-background p-2 pt-12 text-foreground sm:flex-row sm:p-12">
         <Image
           className="min-w-[10rem] max-w-[15rem] lg:max-w-[20rem]"
@@ -81,6 +77,32 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+    );
+  }
+
+  return (
+    <Page>
+      <Link
+        as={NavLink}
+        to={`..${search}`}
+        relative="path"
+        className="flex gap-3"
+        color="foreground"
+      >
+        <MdArrowCircleLeft className="text-2xl" /> Go back to {categoryFilter}{" "}
+        products
+      </Link>
+      <Suspense
+        fallback={
+          <div className="flex h-48 w-full items-center justify-center">
+            <Spinner size="lg" color="primary" />
+          </div>
+        }
+      >
+        <Await resolve={productPromise.productData}>
+          {renderProductElement}
+        </Await>
+      </Suspense>
     </Page>
   );
 };
