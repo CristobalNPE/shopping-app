@@ -1,39 +1,26 @@
 import { Button, Chip, Image, Link } from "@nextui-org/react";
-import { useEffect, useState } from "react";
-import { MdFavorite, MdShoppingCart, MdArrowCircleLeft } from "react-icons/md";
-import { NavLink, useLocation, useParams } from "react-router-dom";
-import Page from "../../../components/Layout/Page";
+import { MdArrowCircleLeft, MdFavorite, MdShoppingCart } from "react-icons/md";
+import { NavLink, useLoaderData, useLocation } from "react-router-dom";
 import QuantityControl from "../../../components/Elements/QuantityControl";
-import useShoppingCart from "../../../hooks/useShoppingCart";
+import Page from "../../../components/Layout/Page";
 import useFavorites from "../../../hooks/useFavorites";
+import useShoppingCart from "../../../hooks/useShoppingCart";
+import { getProduct } from "../api/getProduct";
+
+export async function loader({ params }) {
+  return getProduct(params.id);
+}
 
 const ProductDetails = () => {
-  const { id } = useParams();
   const location = useLocation();
+
+  const product = useLoaderData();
 
   const search = location.state?.search || "";
   const categoryFilter = location.state?.categoryFilter || "all";
 
-  const [product, setProduct] = useState({});
-
   const { addToCart, cartItems } = useShoppingCart();
   const { toggleFavorite, isFavorite } = useFavorites();
-
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-        if (!response.ok) {
-          throw new Error(`Error fetching product with id ${id}`);
-        }
-        let data = await response.json();
-        setProduct(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchProduct();
-  }, [id]);
 
   const productInCart = cartItems.find((item) => item.id === product.id);
 
@@ -50,7 +37,7 @@ const ProductDetails = () => {
         products
       </Link>
 
-      <div className="flex flex-col items-center gap-10 rounded-lg bg-background p-2 pt-12 sm:p-12 text-foreground sm:flex-row">
+      <div className="flex flex-col items-center gap-10 rounded-lg bg-background p-2 pt-12 text-foreground sm:flex-row sm:p-12">
         <Image
           className="min-w-[10rem] max-w-[15rem] lg:max-w-[20rem]"
           src={product.image}

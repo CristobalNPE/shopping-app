@@ -5,7 +5,9 @@ import Contact from "../features/misc/routes/Contact";
 import ErrorPage from "../features/misc/routes/ErrorPage";
 import Favorites from "../features/favorites/routes/Favorites";
 import Home from "../features/misc/routes/Home";
-import ProductDetails from "../features/products/routes/ProductDetails";
+import ProductDetails, {
+  loader as productDetailsLoader,
+} from "../features/products/routes/ProductDetails";
 import Products, {
   loader as productsLoader,
 } from "../features/products/routes/Products";
@@ -48,6 +50,7 @@ const Router = () => {
         {
           path: "products/:id",
           element: <ProductDetails />,
+          loader: productDetailsLoader,
         },
         {
           path: "*",
