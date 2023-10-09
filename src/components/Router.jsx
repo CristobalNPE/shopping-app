@@ -12,7 +12,7 @@ import Products, {
   loader as productsLoader,
 } from "../features/products/routes/Products";
 import NotFound from "../features/misc/routes/NotFound";
-import Login from "../features/auth/routes/Login";
+import Login, { action as loginAction } from "../features/auth/routes/Login";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -28,6 +28,7 @@ const Router = () => {
         {
           path: "login",
           element: <Login />,
+          action: loginAction,
         },
         {
           path: "cart",

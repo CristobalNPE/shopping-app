@@ -1,42 +1,40 @@
 import { Button, Input } from "@nextui-org/react";
+import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 import Page from "../../../components/Layout/Page";
-import { useState } from "react";
+import { loginUser } from "../api/loginUser";
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const username = formData.get("username");
+  const password = formData.get("password");
+  try {
+    const data = await loginUser({ username, password });
+    console.log(data);
+    return redirect("/");
+  } catch (err) {
+    return "No user with those credentials found.";
+  }
+}
 
 const Login = () => {
-  const [loginFormData, setLoginFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    alert(`${loginFormData.email}  ${loginFormData.password}`);
-  }
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setLoginFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  }
+  const error = useActionData();
+  const navigation = useNavigation();
 
   return (
     <Page>
       <div className="flex flex-col text-center sm:items-center ">
-        <h1 className="mb-10 text-3xl font-semibold">
-          Sign in to your account
-        </h1>
-        <form
+        <h1 className="mb-5 text-3xl font-semibold">Sign in to your account</h1>
+        {error && <h2 className="mb-5 text-danger">{error}</h2>}
+        <Form
+          replace
+          method="post"
           className="flex w-full flex-col gap-2 sm:max-w-sm"
-          onSubmit={handleSubmit}
         >
           <Input
             size="lg"
-            label="Email Address"
-            type="email"
-            name="email"
-            value={loginFormData.email}
-            onChange={handleChange}
+            label="Username"
+            type="text"
+            name="username"
             radius="sm"
           />
           <Input
@@ -44,8 +42,6 @@ const Login = () => {
             label="Password"
             type="password"
             name="password"
-            value={loginFormData.password}
-            onChange={handleChange}
             radius="sm"
           />
           <Button
@@ -55,10 +51,13 @@ const Login = () => {
             color="primary"
             variant="shadow"
             className="mt-5"
+            fullWidth
+            disabled={navigation.state === "submitting"}
+            isLoading={navigation.state === "submitting"}
           >
-            Log in
+            {navigation.state === "submitting" ? "Loggin in..." : "Log in"}
           </Button>
-        </form>
+        </Form>
       </div>
     </Page>
   );
