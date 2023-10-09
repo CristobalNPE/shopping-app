@@ -48,7 +48,14 @@ const Login = () => {
             onChange={handleChange}
             radius="sm"
           />
-          <Button radius="sm" size="lg" type="submit" color="secondary" className="mt-5">
+          <Button
+            radius="sm"
+            size="lg"
+            type="submit"
+            color="primary"
+            variant="shadow"
+            className="mt-5"
+          >
             Log in
           </Button>
         </form>

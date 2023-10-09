@@ -1,4 +1,5 @@
 import { Button } from "@nextui-org/react";
+import { Link } from "react-router-dom";
 
 const AccountPopover = ({ setIsOpen }) => {
   return (
@@ -7,6 +8,8 @@ const AccountPopover = ({ setIsOpen }) => {
         className="mb-5"
         color="secondary"
         onClick={() => setIsOpen(false)}
+        as={Link}
+        to={"login"}
       >
         Log In
       </Button>
