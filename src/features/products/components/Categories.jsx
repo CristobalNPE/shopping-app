@@ -1,19 +1,7 @@
 import { Button } from "@nextui-org/react";
-import { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
-import { getCategories } from "../api/getCategories";
 
-const Categories = ({ categoryFilter, setSearchParams }) => {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    const loadCategories = async () => {
-      const data = await getCategories();
-      setCategories(data);
-    };
-    loadCategories();
-  }, []);
-
+const Categories = ({ categoryFilter, setSearchParams, categories }) => {
   return (
     <div className="my-5 flex flex-wrap gap-3">
       {categories.map((c, index) => (

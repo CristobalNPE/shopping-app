@@ -49,7 +49,6 @@ const Products = () => {
   return (
     <Page>
       <PageTitle>Our Products</PageTitle>
-
       <Categories
         categories={dataPromise.categories}
         categoryFilter={categoryFilter}
