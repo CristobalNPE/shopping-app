@@ -48,7 +48,12 @@ const Products = () => {
 
   return (
     <Page>
-      <PageTitle>Our Products</PageTitle>
+      <PageTitle>
+        Our Products{" "}
+        {categoryFilter && (
+          <span className="text-lg capitalize"> - {categoryFilter}</span>
+        )}
+      </PageTitle>
       <Categories
         categories={dataPromise.categories}
         categoryFilter={categoryFilter}
