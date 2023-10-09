@@ -10,7 +10,7 @@ import ProductCard from "../components/ProductCard";
 import ProductsBanner from "../components/ProductsBanner";
 
 export async function loader() {
-  //we only await for categories to get resolved, since its a light request
+
   return defer({
     productsData: getProducts(),
     categoriesData: getCategories(),
