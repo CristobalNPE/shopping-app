@@ -6,7 +6,9 @@ import ErrorPage from "../features/misc/routes/ErrorPage";
 import Favorites from "../features/favorites/routes/Favorites";
 import Home from "../features/misc/routes/Home";
 import ProductDetails from "../features/products/routes/ProductDetails";
-import Products from "../features/products/routes/Products";
+import Products, {
+  loader as productsLoader,
+} from "../features/products/routes/Products";
 import NotFound from "../features/misc/routes/NotFound";
 
 const Router = () => {
@@ -36,6 +38,7 @@ const Router = () => {
         {
           path: "products",
           element: <Products />,
+          loader: productsLoader,
         },
         {
           path: "products/:id",

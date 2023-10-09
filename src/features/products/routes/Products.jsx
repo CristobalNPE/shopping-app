@@ -1,54 +1,33 @@
+import { Button } from "@nextui-org/react";
 import { useEffect, useState } from "react";
-import Page from "../../../components/Layout/Page";
+import { MdClose, MdDiscount } from "react-icons/md";
+import { useLoaderData, useSearchParams } from "react-router-dom";
+import ProductsImage from "../../../assets/productsBannerM.png";
 import PageTitle from "../../../components/Elements/PageTitle";
+import Page from "../../../components/Layout/Page";
+import { getCategories } from "../api/getCategories";
+import { getProducts } from "../api/getProducts";
 import ProductCard from "../components/ProductCard";
 
-import { Button } from "@nextui-org/react";
-import { MdDiscount, MdClose } from "react-icons/md";
-import { useSearchParams } from "react-router-dom";
-import ProductsImage from "../../../assets/productsBannerM.png";
+export async function loader() {
+  return getProducts();
+}
 
 const Products = () => {
-  const [productsData, setProductsData] = useState([]);
-  const [categories, setCategories] = useState([]);
-
   const [searchParams, setSearchParams] = useSearchParams();
+  const productsData = useLoaderData();
+
+  //move cateogires to own component??
+  const [categories, setCategories] = useState([]);
 
   const categoryFilter = searchParams.get("category");
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await fetch(
-          "https://fakestoreapi.com/products/categories",
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error: ${response.status}`);
-        }
-        let data = await response.json();
-        setCategories(data);
-      } catch (err) {
-        console.log(err);
-      }
+    const loadCategories = async () => {
+      const data = await getCategories();
+      setCategories(data);
     };
-    fetchCategories();
-  }, []);
-
-  useEffect(() => {
-    const fetchProductsData = async () => {
-      try {
-        const response = await fetch("https://fakestoreapi.com/products");
-        if (!response.ok) {
-          throw new Error(`Http error: ${response.status}`);
-        }
-        let data = await response.json();
-        setProductsData(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    fetchProductsData();
+    loadCategories();
   }, []);
 
   const displayedProducts = categoryFilter
