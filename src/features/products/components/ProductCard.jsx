@@ -68,7 +68,7 @@ const ProductCard = ({
               <span className="mr-1 font-semibold">{rating.rate}</span> (
               {rating.count} reviews)
             </span>
-            <h2 className="text-2xl font-bold">$ {price}</h2>
+            <h2 className="ml-1 text-2xl font-bold">$ {price}</h2>
           </div>
         </div>
       </CardFooter>
