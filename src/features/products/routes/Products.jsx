@@ -1,60 +1,72 @@
-import { MdDiscount } from "react-icons/md";
-import { useLoaderData, useSearchParams } from "react-router-dom";
-import ProductsImage from "../../../assets/productsBannerM.png";
+import { Spinner } from "@nextui-org/react";
+import { Suspense } from "react";
+import { Await, defer, useLoaderData, useSearchParams } from "react-router-dom";
 import PageTitle from "../../../components/Elements/PageTitle";
 import Page from "../../../components/Layout/Page";
+import { getCategories } from "../api/getCategories";
 import { getProducts } from "../api/getProducts";
 import Categories from "../components/Categories";
 import ProductCard from "../components/ProductCard";
+import ProductsBanner from "../components/ProductsBanner";
 
 export async function loader() {
-  return getProducts();
+  //we only await for categories to get resolved, since its a light request
+  return defer({
+    productsData: getProducts(),
+    categories: await getCategories(),
+  });
 }
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const productsData = useLoaderData();
+  const dataPromise = useLoaderData();
 
   const categoryFilter = searchParams.get("category");
 
-  const displayedProducts = categoryFilter
-    ? productsData.filter((product) => product.category === categoryFilter)
-    : productsData;
+  function renderProductElements(productsData) {
+    const displayedProducts = categoryFilter
+      ? productsData.filter((product) => product.category === categoryFilter)
+      : productsData;
 
-  const productElements = displayedProducts.map((product) => (
-    <ProductCard
-      key={product.id}
-      search={`?${searchParams.toString()}`}
-      categoryFilter={categoryFilter}
-      {...product}
-    />
-  ));
+    const productElements = displayedProducts.map((product) => (
+      <ProductCard
+        key={product.id}
+        search={`?${searchParams.toString()}`}
+        categoryFilter={categoryFilter}
+        {...product}
+      />
+    ));
+
+    return (
+      <>
+        <main className="mt-10 grid justify-center gap-10  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {productElements}
+        </main>
+      </>
+    );
+  }
 
   return (
     <Page>
       <PageTitle>Our Products</PageTitle>
+
       <Categories
+        categories={dataPromise.categories}
         categoryFilter={categoryFilter}
         setSearchParams={setSearchParams}
       />
-      <article className="my-5 flex h-56 flex-col-reverse items-center justify-center overflow-hidden rounded-lg  bg-gradient-to-r from-primary to-secondary px-5 sm:flex-row sm:justify-between">
-        <div className="p-5 text-sm">
-          <h4 className="flex items-center gap-1 ">
-            <MdDiscount /> Promo
-          </h4>
-          <h1 className="text-3xl font-semibold">
-            Get 20% dicount on all purchases
-          </h1>
-          <h3 className="">
-            Try our coupon at checkout:{" "}
-            <span className="font-bold">SHCVEINTE</span>
-          </h3>
-        </div>
-        <img src={ProductsImage} className="hidden h-72 md:flex" />
-      </article>
-      <main className="mt-10 grid justify-center gap-10  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {productElements}
-      </main>
+      <ProductsBanner />
+      <Suspense
+        fallback={
+          <div className="mt-20 flex justify-center">
+            <Spinner size="lg" label="Loading products" />
+          </div>
+        }
+      >
+        <Await resolve={dataPromise.productsData}>
+          {renderProductElements}
+        </Await>
+      </Suspense>
     </Page>
   );
 };
