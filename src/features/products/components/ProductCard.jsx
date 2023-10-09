@@ -4,7 +4,7 @@ import {
   CardFooter,
   CardHeader,
   Chip,
-  Image,
+  Image
 } from "@nextui-org/react";
 import { MdFavorite, MdFavoriteBorder, MdStar } from "react-icons/md";
 import { NavLink } from "react-router-dom";
@@ -58,9 +58,10 @@ const ProductCard = ({
           />
         </div>
       </CardBody>
+
       <CardFooter className="flex h-1/2">
         <div className="flex h-full  flex-col justify-between">
-          <h1 className="font-semibold">{title}</h1>
+          <h1 className="font-semibold ">{title}</h1>
           <div className="flex flex-col gap-3">
             <span className="text-md flex items-center gap-1 ">
               <MdStar className="text-2xl text-primary" />{" "}
