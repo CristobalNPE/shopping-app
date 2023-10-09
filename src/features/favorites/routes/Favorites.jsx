@@ -4,36 +4,29 @@ import Page from "../../../components/Layout/Page";
 import PageTitle from "../../../components/Elements/PageTitle";
 import RedirectCard from "../../../components/Elements/RedirectCard";
 import useFavorites from "../../../hooks/useFavorites";
+import { getFavorites } from "../api/getFavorites";
+import { Spinner } from "@nextui-org/react";
 
 const Favorites = () => {
   const { favorites } = useFavorites();
   const [favoriteProducts, setFavoritesProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const fetchProduct = async (id) => {
-    try {
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-      if (!response.ok) {
-        throw new Error(`Error fetching product with id ${id}`);
-      }
-      const data = await response.json();
-      return data;
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //this feels wrong, we are fetching again everytime a favorite is removed too
   useEffect(() => {
-    const fetchFavoriteProducts = async () => {
-      const productPromises = favorites.map((id) => fetchProduct(id));
-
+    const loadFavorites = async () => {
       try {
-        const products = await Promise.all(productPromises);
-        setFavoritesProducts(products.filter((product) => product !== null));
-      } catch (error) {
-        console.error(error);
+        setLoading(true);
+        const data = await getFavorites(favorites);
+        setFavoritesProducts(data);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchFavoriteProducts();
+    loadFavorites();
   }, [favorites]);
 
   const favoriteProductsElements = favoriteProducts.map((product) => (
@@ -48,6 +41,10 @@ const Favorites = () => {
           subtitle={`Check out our products if you need inspiration`}
           toLink={`/products`}
         />
+      ) : loading ? (
+        <div className="mt-20 flex justify-center">
+          <Spinner label="Updating your favorites..." size="lg" />
+        </div>
       ) : (
         <>
           <PageTitle>Favorite products</PageTitle>
