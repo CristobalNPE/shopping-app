@@ -1,12 +1,10 @@
-import { Button } from "@nextui-org/react";
-import { useEffect, useState } from "react";
-import { MdClose, MdDiscount } from "react-icons/md";
+import { MdDiscount } from "react-icons/md";
 import { useLoaderData, useSearchParams } from "react-router-dom";
 import ProductsImage from "../../../assets/productsBannerM.png";
 import PageTitle from "../../../components/Elements/PageTitle";
 import Page from "../../../components/Layout/Page";
-import { getCategories } from "../api/getCategories";
 import { getProducts } from "../api/getProducts";
+import Categories from "../components/Categories";
 import ProductCard from "../components/ProductCard";
 
 export async function loader() {
@@ -17,18 +15,7 @@ const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const productsData = useLoaderData();
 
-  //move cateogires to own component??
-  const [categories, setCategories] = useState([]);
-
   const categoryFilter = searchParams.get("category");
-
-  useEffect(() => {
-    const loadCategories = async () => {
-      const data = await getCategories();
-      setCategories(data);
-    };
-    loadCategories();
-  }, []);
 
   const displayedProducts = categoryFilter
     ? productsData.filter((product) => product.category === categoryFilter)
@@ -46,29 +33,10 @@ const Products = () => {
   return (
     <Page>
       <PageTitle>Our Products</PageTitle>
-      <div className="my-5 flex flex-wrap gap-3">
-        {categories.map((c, index) => (
-          <Button
-            onClick={() => setSearchParams({ category: c })}
-            className="sm:w-fit "
-            variant="flat"
-            color="warning"
-            key={c || index}
-          >
-            {c}
-          </Button>
-        ))}
-        {categoryFilter && (
-          <Button
-            onClick={() => setSearchParams({})}
-            className="ml-auto w-full sm:w-fit"
-            variant="bordered"
-            color="danger"
-          >
-            <MdClose className="text-xl" /> Clear Filter
-          </Button>
-        )}
-      </div>
+      <Categories
+        categoryFilter={categoryFilter}
+        setSearchParams={setSearchParams}
+      />
       <article className="my-5 flex h-56 flex-col-reverse items-center justify-center overflow-hidden rounded-lg  bg-gradient-to-r from-primary to-secondary px-5 sm:flex-row sm:justify-between">
         <div className="p-5 text-sm">
           <h4 className="flex items-center gap-1 ">
