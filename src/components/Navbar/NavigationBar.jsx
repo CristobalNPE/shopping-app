@@ -39,6 +39,7 @@ export default function NavigationBar({ switchNightMode, nightMode }) {
       className="fixed"
       maxWidth="2xl"
       isBordered
+      
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >

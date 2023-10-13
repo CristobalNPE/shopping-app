@@ -16,7 +16,7 @@ const App = () => {
     <main
       className={`${
         nightMode && "dark"
-      } min-h-screen w-full  overflow-auto bg-background  text-foreground`}
+      } min-h-[100dvh] w-full  overflow-auto bg-background  text-foreground`}
     >
       <ScrollRestoration />
 

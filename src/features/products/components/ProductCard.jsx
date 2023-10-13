@@ -4,7 +4,7 @@ import {
   CardFooter,
   CardHeader,
   Chip,
-  Image
+  Image,
 } from "@nextui-org/react";
 import { MdFavorite, MdFavoriteBorder, MdStar } from "react-icons/md";
 import { NavLink } from "react-router-dom";
